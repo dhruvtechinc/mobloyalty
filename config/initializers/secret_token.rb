@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mobloyalty::Application.config.secret_key_base = '5e6c3c65cf8a989a6cbce4fc1b3b025f128ed60781a5351405787038fa10be8b32b0cb2ea29eb6d2ca1f30c7b56cd4f8df6f14ed1812f0e53219c762f7912745'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Mobloyalty::Application.config.secret_key_base = secure_token
