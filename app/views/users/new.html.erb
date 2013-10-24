@@ -1,23 +1,104 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag "application", media: "all",
+  "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+  
+  <section class="bgslider-wrapper" id="home">
+   <div class="home-contain custom-height">
+     <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <a class="logo margintop60" href="#home"><img alt="" src="img/logo.png"></a>
+          <div class="da-slider" id="da-slider" style="background-position: 482850% 0%;">
+            <div class="stand-out-form">
+              <h4> Sign In</h4>
+              <%= form_for :session, url: sessions_path, html: {class: "text-left"} do |f| %>
+              
+              <fieldset>
+                <div class="form-group">
+                  <%= f.label :email,"Email" %>
+                  <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password,"Password" %>
+                  <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
+                </div>                    
+                <div class="btn-group">
+                  <%= f.submit "Sign in", class: "btn btn-lg btn-success", name: "signin" %>
+                </div>
+                <div class="btn-group">
+                  <%= f.submit "Forgot your Password", class: "btn btn-lg btn-success", name: "forgotpassword" %>
+                </div>                      
+              </fieldset>
+              <% end %>
+            </div>          
+          </div>  
+        </div>  
+        <div class="col-lg-5  col-lg-offset-2">
+          <div class="stand-out-form">
+           <h4><span class="glyphicon glyphicon-registration-mark"></span> Registration</h4>
+           <%= form_for (@user), html: {class: "text-left"} do |f| %>
+           
+           <fieldset>
+            <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                The form contains <%= pluralize(@user.errors.count, "error") %>.
+                
+                <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <% end %>
+            <div class="form-group">
+              <%= f.label :first_name,"First Name" %>
+              <%= f.text_field :first_name, class: "form-control", placeholder: "Enter your first name" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name,"Last Name" %>
+              <%= f.text_field :last_name, class: "form-control", placeholder: "Enter your last name" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :phone_number,"Phone Number" %>
+              <%= f.text_field :phone_number, class: "form-control", placeholder: "Enter your Phone Number" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email,"Email" %>
+              <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password,"Password" %>
+              <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
+            </div>                    
+            <div class="form-group">
+              <%= f.label :password_confirmation,"Confirmation" %>
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Re-Enter your Password" %>
+            </div>                    
+            <div class="btn-group">
+              <%= f.submit "Merchant Account", class: "btn btn-lg btn-danger", name: "merchant" %>
+            </div>
+            <div class="btn-group">
+              <%= f.submit "Customer Account", class: "btn btn-lg btn-danger", name: "customer" %>
+            </div>											
+          </fieldset>
+          <% end %>
+          
+        </div>
+      </div>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
+    </div>
   </div>
 </div>
+</section>
+</body>
+</html>

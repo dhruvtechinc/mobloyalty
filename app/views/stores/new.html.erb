@@ -1,0 +1,63 @@
+
+  <div class="container bs-docs-container">
+     <div class="container">
+      <div class="row">
+        <div class="col-lg-5  col-lg-offset-2">
+          <div class="stand-out-form">
+           <h4><span class="glyphicon glyphicon-registration-mark"></span>Complete your Registration</h4>
+           <%= form_for (@store), html: {class: "text-left"} do |f| %>
+           
+           <fieldset>
+            <% if @store.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                The form contains <%= pluralize(@store.errors.count, "error") %>.
+                
+                <ul>
+                  <% @store.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <% end %>
+            <div class="form-group">
+              <%= f.label :name,"Business/Store Name" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "Enter store name" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :address,"Street Address" %>
+              <%= f.text_field :address, class: "form-control", placeholder: "Enter stores street address" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :city,"City" %>
+              <%= f.text_field :city, class: "form-control", placeholder: "Enter stores city name" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :state,"State" %>
+              <%= f.text_field :state, class: "form-control", placeholder: "Enter stores state name" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :zip,"Zip Code" %>
+              <%= f.text_field :zip, class: "form-control", placeholder: "Enter stores zip code" %>
+            </div>                    
+            <div class="form-group">
+              <%= f.label :store_phone_number,"Stores Phone Number" %>
+              <%= f.text_field :store_phone_number, class: "form-control", placeholder: "Enter stores phone number" %>
+            </div>                    
+            <div class="btn-group">
+              <%= f.submit "Finish", class: "btn btn-lg btn-success", name: "finish" %>
+            </div>
+            <div class="btn-group">
+              <%= f.submit "Clear", class: "btn btn-lg ", name: "clear", type: "reset" %>
+            </div>                      
+          </fieldset>
+          <% end %>
+          
+        </div> <!-- Standout form-->
+      </div>
+
+    </div>
+  </div>
+</div>
+

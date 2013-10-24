@@ -1,7 +1,82 @@
 @import "bootstrap";
 @import "docs";
-@import "style";
 @import "default";
+@import "pygments-manni";
+
+
+footer {
+    background: none repeat scroll 0 0 #252525;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.home-contain {
+    height: 660px;
+    text-align: center;
+}
+.bgslider-wrapper {
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.bg-slider {
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 660px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.logo {
+    display: inline-block;
+    margin: 120px 0 30px;
+    padding: 0;
+    position: relative;
+    z-index: 600;
+}
+.small-logo {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.stand-out-form {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin-top: 60px;
+    position: relative;
+}
+
+.stand-out-form h4 {
+    background: none repeat scroll 0 0 #2F343A;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+}
+.stand-out-form form {
+    color: #808080;
+    margin: 0;
+    padding: 20px;
+}
+.stand-out-form .form-group {
+    margin: 0 0 20px;
+}
+.stand-out-form .form-group input {
+    height: 45px;
+}
+
+.margintop60 {
+    margin-top: 60px;
+}
+.custom-height {
+    height: auto;
+    padding-bottom: 60px;
+}
 
 /* mixins, variables, etc. */
 
