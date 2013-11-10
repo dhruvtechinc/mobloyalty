@@ -6,7 +6,12 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:session][:email].downcase)
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
-			redirect_to user
+			if user.customer_account?
+				redirect_to :controller => 'membership', :action => 'show', :id => user.id #, :something => 'else' "/membership/show"
+			elsif user.merchant_account?
+				redirect_to :controller => 'rewards', :action => 'new', :id => user.id #, :something => 'else' "/membership/show"
+			end
+				
 		else
 			flash[:error] = 'Invalid email/password combination'
 			redirect_to root_url

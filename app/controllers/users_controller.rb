@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
 	before_action :signed_in_user, only: [:edit, :update, :destroy]
 	before_action :correct_user,   only: [:show, :edit, :update]
-	before_action :merchant_account, only: [:index]
+	#before_action :merchant_account, only: [:index]
 	def index
-		@users = User.paginate(page: params[:page])
+		#@users = User.paginate(page: params[:page])		
+		#@stores = Store.paginate(page: params[:page])
+		redirect_to :controller => 'membership', :action => 'show', :id => current_user.id #, :something => 'else' "/membership/show"
 	end
 	def new
 		@user = User.new
 	end
 	def show
-		puts "***************************************************************************************88"
 		@user = User.find(params[:id])
 	end
 	def create
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
 		  else
 	  		  render 'new'
 	  	  end
-		elsif [params[:signin]]
+		elsif params[:signin]
 			render "sessions/create"
 		end
 	end
@@ -52,8 +53,5 @@ def user_params
 	params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :customer_account, :merchant_account, :password,
 		:password_confirmation)
 end
-def correct_user
-	@user = User.find(params[:id])
-	redirect_to(root_url) unless current_user?(@user)
-end
+
 end

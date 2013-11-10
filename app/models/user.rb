@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   require "bcrypt"
+  has_many :memberships
   has_many :stores
   before_save { self.email = email.downcase }
   before_create :create_remember_token

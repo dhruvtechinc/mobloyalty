@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019190545) do
+ActiveRecord::Schema.define(version: 20131107120357) do
+
+  create_table "memberships", force: true do |t|
+    t.string   "user_id"
+    t.string   "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["user_id", "store_id"], name: "index_memberships_on_user_id_and_store_id", unique: true
+
+  create_table "rewards", force: true do |t|
+    t.string   "membership_id"
+    t.string   "receipt_no"
+    t.string   "amount"
+    t.string   "accrued"
+    t.string   "redeemed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stores", force: true do |t|
     t.integer  "user_id"

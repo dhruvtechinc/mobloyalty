@@ -1,0 +1,13 @@
+<% if @stores.any? %>
+<div class="container">
+	<div class="row"> 
+		<div class="col-lg-6">
+      <h3>Stores (<%= @stores.count %>)</h3>
+      <ol class="stores">
+        <%= render @stores %>
+      </ol>
+		</div>
+	</div>
+	
+</div>
+<% end %>			

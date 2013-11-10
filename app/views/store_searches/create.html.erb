@@ -1,0 +1,23 @@
+
+            <% if @storesearch.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                The form contains <%= pluralize(@storesearch.errors.count, "error") %>.
+                
+                <ul>
+                  <% @storesearch.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <% end %>
+
+
+                        <% flash.each do |key, value| %>
+                        <div id="error_explanation">
+                          <div class="alert alert-danger"><%= value %>
+
+                          </div>
+                        </div>
+                        <% end %>

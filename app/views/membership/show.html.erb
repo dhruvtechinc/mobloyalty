@@ -1,0 +1,24 @@
+<% provide(:title, 'All Memberships') %>
+<h1>All Memberships</h1>
+<%= will_paginate %>
+<div class="table-responsive">
+  <table class="table">
+  <thead>
+  	<tr>
+  		<th>Store Name</th>
+  		<th>Accrued</th>
+  		<th>Redeemed</th>
+  	</tr>
+  </thead>
+  <tbody>
+  <% @membership.each do |membership| %>
+  	<tr>
+  		<td><%= membership.store.name %></td>
+  		<td><%= membership.rewards.sum(:accrued) - membership.rewards.sum(:redeemed) %></td>
+  		<td><%= membership.rewards.sum(:redeemed) %></td>
+  	</tr>
+  <% end %>
+  </tbody>
+  </table>
+ </div>
+<%= will_paginate %>

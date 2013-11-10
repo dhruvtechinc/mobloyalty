@@ -19,10 +19,14 @@ module SessionsHelper
 
 	def sign_out
 		self.current_user = nil
+		self.current_store = nil
 		cookies.delete(:remember_token)
 	end
 	def current_user?(user)
 		user == current_user
+	end
+	def current_store=(store)
+		@current_store = store
 	end
 	
 	def redirect_back_or(default)
@@ -32,6 +36,12 @@ module SessionsHelper
 
 	def store_location
 		session[:return_to] = request.url if request.get?
+	end
+	
+	def correct_user
+		puts params[:id]
+		@user = User.find(params[:id])
+		redirect_to("/signout") unless current_user?(@user)
 	end
 
 	def signed_in_user
