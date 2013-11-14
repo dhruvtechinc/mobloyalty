@@ -1,9 +1,26 @@
+<div id="main-content-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 icon-box">
+ <!-- icon -->
+      <div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+        <i class="fa-icon-trophy text-white"></i>
+      </div>
+ 
+      <div class="content">
+        <h1 class="title">Accrue or Redeem Points</h1>
+      </div>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
   <div class="container bs-docs-container">
      <div class="container">
       <div class="row">
         <div class="col-lg-5  col-lg-offset-2">
           <div class="stand-out-form">
-           <h4>Accrue or Redeem Points</h4>
            <%= form_for (@reward), html: {class: "text-left"} do |f| %>
            
            <fieldset>
@@ -37,7 +54,7 @@
               <%= f.text_field :amount, class: "form-control", placeholder: "Enter Amount or Points to Redeem" %>
             </div>                    
             <div class="btn-group">
-              <%= f.submit "Accrue Points", class: "btn btn-lg btn-danger", name: "accrue" %>
+              <%= f.submit "Accrue Points", class: "btn btn-lg btn-info", name: "accrue" %>
             </div>
             <div class="btn-group">
               <%= f.submit "Redeem Points", class: "btn btn-lg btn-danger", name: "customer" %>
@@ -50,4 +67,5 @@
 
     </div>
   </div>
+</div>
 </div>

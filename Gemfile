@@ -51,6 +51,7 @@ group :production do
 end
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'font-awesome-less'
 ruby '2.0.0'
 
 # Use ActiveModel has_secure_password

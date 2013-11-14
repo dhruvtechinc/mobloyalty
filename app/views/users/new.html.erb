@@ -1,49 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag "application", media: "all",
-  "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %>
-</head>
-<body>
-  
-  <section class="bgslider-wrapper" id="home">
-   <div class="home-contain custom-height">
-     <div class="container">
-      <div class="row">
-        <div class="col-lg-5">
-          <a class="logo margintop60" href="#home"><img alt="" src="img/logo.png"></a>
-          <div class="da-slider" id="da-slider" style="background-position: 482850% 0%;">
-            <div class="stand-out-form">
-              <h4> Sign In</h4>
-              <%= form_for :session, url: sessions_path, html: {class: "text-left"} do |f| %>
-              
-              <fieldset>
-                <div class="form-group">
-                  <%= f.label :email,"Email" %>
-                  <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :password,"Password" %>
-                  <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
-                </div>                    
-                <div class="btn-group">
-                  <%= f.submit "Sign in", class: "btn btn-lg btn-success", name: "signin" %>
-                </div>
-                <div class="btn-group">
-                  <%= f.submit "Forgot your Password", class: "btn btn-lg btn-success", name: "forgotpassword" %>
-                </div>                      
-              </fieldset>
-              <% end %>
-            </div>          
-          </div>  
-        </div>  
-        <div class="col-lg-5  col-lg-offset-2">
+<% provide(:title, 'All Memberships') %>
+<div id="main-content-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 icon-box">
+      <div class="icon icon-wrap icon-circle icon-lg contrast-bg ">
+        <i class="fa-icon-group text-white"></i>
+      </div>
+ 
+      <div class="content">
+        <h1 class="title">Registration</h1>
+      </div>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
+  <div class="container">
+    <div class="row">
+          <div class="col-lg-5  col-lg-offset-2">
           <div class="stand-out-form">
-           <h4><span class="glyphicon glyphicon-registration-mark"></span> Registration</h4>
            <%= form_for (@user), html: {class: "text-left"} do |f| %>
            
            <fieldset>
@@ -83,22 +59,26 @@
             <div class="form-group">
               <%= f.label :password_confirmation,"Confirmation" %>
               <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Re-Enter your Password" %>
-            </div>                    
+            </div>   
+            <% if params[:whois] == 'merchant' %>                 
             <div class="btn-group">
               <%= f.submit "Merchant Account", class: "btn btn-lg btn-danger", name: "merchant" %>
             </div>
+            <% else %>
             <div class="btn-group">
               <%= f.submit "Customer Account", class: "btn btn-lg btn-danger", name: "customer" %>
             </div>											
+            <% end %>
+            <div class="btn-group">
+              <%= f.submit "Clear", class: "btn btn-lg btn-danger" , name: "clear", type: "reset" %>
+            </div>                      
+
           </fieldset>
           <% end %>
           
         </div>
       </div>
 
-    </div>
-  </div>
 </div>
-</section>
-</body>
-</html>
+</div>
+</div>

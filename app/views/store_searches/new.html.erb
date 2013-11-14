@@ -1,7 +1,25 @@
-<div class="container">
-	<div class="row">
-		<div class="col-lg-5">
-
+<% provide(:title, 'All Memberships') %>
+<div id="main-content-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 icon-box">
+ <!-- icon -->
+      <div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+        <i class="fa-icon-search text-white"></i>
+      </div>
+ 
+      <div class="content">
+        <h1 class="title">Search Stores</h1>
+      </div>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
+  <div class="container">
+  	<div class="row">
+  		<div class="col-sm-4 col-sm-offset-4">
 			<%= form_for @storesearch, html: {class: "text-left"} do |f| %>
 			
 			<fieldset>
@@ -24,6 +42,7 @@
 					<%= f.label :zip,"Zip Code" %>
 					<%= f.text_field :zip, class: "form-control", placeholder: "Enter zip" %>
 				</div>
+				<!--
                                 <div class="form-group">
                                         <div><h1>OR</h1>
                                         </div>
@@ -31,7 +50,8 @@
 				<div class="form-group">
 					<%= f.label :name,"Business Name" %>
 					<%= f.text_field :name, class: "form-control", placeholder: "Enter Business Name" %>
-				</div>                    
+				</div>    
+				-->                
 				<div class="btn-group">
 					<%= f.submit "Search", class: "btn btn-lg btn-success", name: "search" %>
 				</div>
@@ -39,29 +59,16 @@
 					<%= f.submit "Clear", class: "btn btn-lg btn-success", type: "reset", name: "clear" %>
 				</div>                      
 			</fieldset>
-			<% end %>         
-
-			
-		</div>
-
-
-<% if @stores.any? %>
-<div class="container">
-        <div class="row"> 
-                <div class="col-lg-6">
-      <h3>Stores (<%= @stores.count %>)</h3>
-      <ol class="stores">
+			<% end %>   
+			</div>
+			</div>      
+  </div>
+  <% if @stores.any? %>
         <%= render @stores %>
-      </ol>
-                </div>
-        </div>
-        
-</div>
 <% end %>                       
-                
-		
-	</div>
+
 </div>
+
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript">

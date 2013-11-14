@@ -3,9 +3,26 @@
 	<div class="row"> 
 		<div class="col-lg-6">
       <h3>Stores (<%= @stores.count %>)</h3>
+      <% @stores.in_groups_of(4, false).each do |store_array| %>
+  		<% store_array.each do |store| %>
+
       <ol class="stores">
-        <%= render @stores %>
-      </ol>
+      <div class='row portfolio-boxes' id='portfolio-container'>
+  			<div class='col-sm-3 portfolio-box portfolio-item'>
+    			<a href='#'>
+      				<div class='image-link'>
+        				<i class='fa-icon-search'></i>
+        				<img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+      				</div>
+      				<h3 class='title'><%= store.name %></h3>
+      				<p class='category'><%= link_to "Add", membership_add_path(:store => store.id), method: "create" %></p>
+    			</a>
+  			</div>
+		</div>
+        <!-- <%= render @stores %> -->
+      	</ol>
+      <% end %>
+      <% end %>
 		</div>
 	</div>
 	

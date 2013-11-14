@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :signed_in_user, only: [:edit, :update, :destroy]
+	before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
 	before_action :correct_user,   only: [:show, :edit, :update]
 	#before_action :merchant_account, only: [:index]
 	def index
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 		redirect_to :controller => 'membership', :action => 'show', :id => current_user.id #, :something => 'else' "/membership/show"
 	end
 	def new
+		puts params[:whois]
 		@user = User.new
 	end
 	def show

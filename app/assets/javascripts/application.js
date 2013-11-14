@@ -14,6 +14,20 @@
 //= require jednotka
 //= require bootstrap.min
 //= require jquery_ujs
+//= require jquery.isotope.min
+//= require jquery.isotope.sloppy-masonry.min
 //= require_tree .
 // Include all twitter's javascripts
-//= require twitter/bootstrap
+//= require twitter-bootstrap-hover-dropdown.min.js
+//= require jquery.mobile.custom.min.js
+//= require modernizr.custom.min.js
+//= require retina.min.js
+//= require jquery.knob.js    
+//= require jquery.validate.min.js
+//= require jquery.flexslider.min.js
+//= require countdown.js
+//= require nivo-lightbox.min.js
+//= require jquery.cycle.all.min.js
+
+
+

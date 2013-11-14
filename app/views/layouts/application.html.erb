@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 9]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if !IE] -->
+<html lang='en'>
+  <!-- <![endif] -->
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
@@ -7,13 +10,48 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
+ 
+    <!-- meta tags -->
+    <meta content='loyalty, loyalty card, card, membership, deals, club, rewards' name='keywords'>
+    <meta content='Say bye to your bloated wallet.' name='description'>
+    <meta content='Loyalty Solutions LLC' name='author'>
+ 
+    <!-- instructions for robots -->
+    <meta content='all' name='robots'>
+ 
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+ 
+    <!-- this enables responsive features in browser -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+ 
+    <!-- if you are going to support IE -->
+    <!--[if IE]> <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'> <![endif]-->
+ 
+    <!-- / icons -->
+    <link href='assets/images/meta_icons/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='assets/images/meta_icons/apple-touch-icon.png' rel='apple-touch-icon-precomposed'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+ 
+    <!-- / stylesheets -->
+ 
+    <!-- if you are going to support IE8 -->
+    <!--[if lt IE 9]>
+      <script src="/assets/javascripts/ie/html5shiv.js" type="text/javascript"></script>
+      <script src="/assets/javascripts/ie/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+ 
   </head>
+ 
   <body>
+    <div id="wrapper">
     <%= render 'layouts/header' %>
     
       <%= yield %>
+    
       <%= render 'layouts/footer' %>
+    </div>
+  
       <%= debug(params) if Rails.env.development? %>
-      <%= render :partial => ‘layouts/ga’ if RAILS_ENV == ‘production’ %>
+      <%= render :partial => 'layouts/ga' if RAILS_ENV == 'production' %>
   </body>
 </html>

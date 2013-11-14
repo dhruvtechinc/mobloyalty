@@ -1,135 +1,49 @@
-<% if !signed_in? %>
-  <section class="bgslider-wrapper" id="home">
-   <div class="home-contain custom-height">
-     <div class="container">
-      <div class="row">
-        <div class="col-lg-5">
-          <a class="logo margintop60" href="#home"><img alt="" src="img/logo.png"></a>
-          
-            <div class="stand-out-form">
-              <h4> Sign In</h4>
-              <%= form_for :session, url: sessions_path, html: {class: "text-left"} do |f| %>
-              
-              <fieldset>
-                <% flash.each do |key, value| %>
-                  <div id="error_explanation">
-                    <div class="alert alert-danger"><%= value %>
-
-                    </div>
-                  </div>
-                <% end %>
-                <div class="form-group">
-                  <%= f.label :email,"Email" %>
-                  <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :password,"Password" %>
-                  <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
-                </div>                    
-                <div class="btn-group">
-                  <%= f.submit "Sign in", class: "btn btn-lg btn-success", name: "signin" %>
-                </div>
-                <div class="btn-group">
-                  <%= f.submit "Forgot your Password", class: "btn btn-lg btn-success", name: "forgotpassword" %>
-                </div>                      
-              </fieldset>
-              <% end %>
-            </div>          
-          
-        </div>  
-        <div class="col-lg-5  col-lg-offset-2">
-          <div class="stand-out-form">
-           <h4><span class="glyphicon glyphicon-registration-mark"></span> Registration</h4>
-           <%= form_for (@user), html: {class: "text-left"} do |f| %>
-           
-           <fieldset>
-            <% if @user.errors.any? %>
-            <div id="error_explanation">
-              <div class="alert alert-danger">
-                The form contains <%= pluralize(@user.errors.count, "error") %>.
-                
-                <ul>
-                  <% @user.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-            <% end %>
-            <div class="form-group">
-              <%= f.label :first_name,"First Name" %>
-              <%= f.text_field :first_name, class: "form-control", placeholder: "Enter your first name" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :last_name,"Last Name" %>
-              <%= f.text_field :last_name, class: "form-control", placeholder: "Enter your last name" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :phone_number,"Phone Number" %>
-              <%= f.text_field :phone_number, class: "form-control", placeholder: "Enter your Phone Number" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :email,"Email" %>
-              <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :password,"Password" %>
-              <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
-            </div>                    
-            <div class="form-group">
-              <%= f.label :password_confirmation,"Confirmation" %>
-              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Re-Enter your Password" %>
-            </div>                    
-            <div class="btn-group">
-              <%= f.submit "Merchant Account", class: "btn btn-lg btn-danger", name: "merchant" %>
-            </div>
-            <div class="btn-group">
-              <%= f.submit "Customer Account", class: "btn btn-lg btn-danger", name: "customer" %>
-            </div>                      
-          </fieldset>
-          <% end %>
-          
-        </div>
-      </div>
+<!--<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner"> -->
+<header id="header">
+  <div class="container">
+    <nav class="navbar navbar-default" id="nav">
+      <div class="navbar-header">
+ 
+        <!-- navigation toggler on small screens -->
+        <button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+              <!-- <%= link_to "mob loyalty", '#', id: "logo" %> -->
+      <a class="navbar-brand" href="#">MOB Loyalty <span class="label label-danger">BETA</span></a>
 
     </div>
-  </div>
-</div>
-</section>
-<% else %>
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-    <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- <%= link_to "mob loyalty", '#', id: "logo" %> -->
-      <a class="navbar-brand" href="#">MOB Loyalty</a>
-    </div>
-      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Home",    root_path %></li>
+    <% if signed_in? %>
+    <div class="collapse navbar-collapse navbar-header-collapse">
+    
+        <ul class="nav navbar-nav navbar-right">
+         <li><%= link_to content_tag(:span, 'Home'),    root_path %></li>
           <% if current_user.customer_account? %>
-          <li><%= link_to "Search Stores",    store_searches_new_path %></li>
-          <li><%= link_to "My Rewards",    users_path %></li>
+          <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_new_path %></li>
+          <li><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
           <% elsif current_user.merchant_account? %>
-          <li><%= link_to "Accrue/Redeem Points",    rewards_new_path %></li>
+          <li><%= link_to content_tag(:span, 'Accrue/Redeem Points'),    rewards_new_path %></li>
           <% end %>
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li><%= link_to content_tag(:span, 'Sign out'), signout_path, method: "delete" %></li>
         </ul>
-<!--       <form class="navbar-form navbar-right">
+      </div>
+        
+        <% else %>
+      <%= form_for :session, url: sessions_path, html: {class: "navbar-form navbar-right"} do |f| %>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Email">
+               <!--   <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span> -->
+                  <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
+             <!--     <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span> -->
+                  <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
             </div>
             <button class="btn btn-success" type="submit">Sign in</button>
-      </form> -->
-      </nav>
+      <% end %> 
+      <% end %>
+    
+    </nav>
   </div>
 </header>
-<% end %>

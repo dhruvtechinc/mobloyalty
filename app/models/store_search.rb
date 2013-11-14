@@ -11,7 +11,7 @@ class StoreSearch < ActiveRecord::Base
 
 	VALID_ZIP_REGEX = /\A\d{5}-\d{4}|\A\d{5}\z/
 	validates :zip, presence: true, format: { with: VALID_ZIP_REGEX }
-	validates :name, presence: true, length: { maximum: 100 }
+	validates :name, length: { maximum: 100 }
 
 	#validates_presence_of :zip
 	#validates_presence_of :name
