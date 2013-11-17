@@ -5,10 +5,9 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 animate">
-              <h4 class="big fadeInUp animated">We will make you an offer you cannot refuse.</h4>
-                <p class="normal fadeInUp animated">Be rewarded for spending at your local business.</p>
-                <%= link_to "Join the Family!", new_user_path, method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
-
+              <h4 class="big fadeInUp animated">Unique Loyalty, Universal Rewards</h4>
+                <p class="normal fadeInUp animated">Exclusive to Kansas City</p>
+                <%= link_to "Join Now", new_user_path(:whois => "customer"), method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
               </div>
             </div>
           </div>
@@ -17,30 +16,26 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12 animate">
-                <h3 class="big fadeInLeftBig animate">Vendors - Connect to our MOB!</h3>
-                    <p class="normal fadeInRightBig animate">MOB Days, MOB Week, MOB Deals</p>
-                <%= link_to "Connect with Family!", new_user_path(:whois => "merchant"), method: "GET", :class => "btn btn-contrast btn-lg fadeInDownBig animate" %>
+                <h3 class="big fadeInLeftBig animate">Are you tired of carrying 100 different Loyalty cards for all your favorite establishments?</h3>
+                    <!--<p class="normal fadeInRightBig animate">MOB Days, MOB Week, MOB Deals</p>
+                <%= link_to "Connect with Family!", new_user_path(:whois => "merchant"), method: "GET", :class => "btn btn-contrast btn-lg fadeInDownBig animate" %>-->
                   </div>
                 </div>
               </div>
             </li>
-            <!--
             <li class="item" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
               <div class="container">
                 <div class="row">
                   <div class="col-lg-12 animate">
-                    <h2 class="big fadeInRightBig animated">Based on Twitter Bootstrap</h2>
-                    <p class="normal fadeInLeftBig animated">Nam nec tellus molestie, sollicitudin, at...</p>
-                    <a class="btn btn-contrast btn-lg fadeInUpBig animated" href="#">
-                      Show more
-                    </a>
+                    <h2 class="big fadeInRightBig animated">Join the mob today, for free</h2>
+                    <p class="normal fadeInLeftBig animated">Start earning points at your favorite KC businesses with nothing more than your email address.</p>
+                <%= link_to "Join Now", new_user_path(:whois => "customer"), method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
                   </div>
                 </div>
               </div>
             </li>
-            -->
           </ul>
-        <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next" href="#"></a></li></ul></div>
+        <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="flex-active">3</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next" href="#"></a></li></ul></div>
         <div id="main-content">
           <div class="container">
             <div class="row">
@@ -53,24 +48,24 @@
                 <div class="col-sm-4 panel-item">
                   <a class="panel panel-image" href="#">
                     <div class="panel-icon">
-                      <i class="fa-icon-heart icon"></i>
+                      <i class="fa-icon-signin icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Loyalty" width="768" height="300" src="assets/images/demo/panels/panel_bg_compass.jpg"></div>
+                    <div class="panel-heading"><img class="img-responsive-sm" alt="Loyalty" width="768" height="300" src="assets/email.jpg"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">Customer Loyalty</h3>
-                      <p>Get rewarded for being a loyal customer. </p>
+                      <h3 class="panel-title">Sign-up for free, today!</h3>
+                      <!--<p>Get rewarded for being a loyal customer.</p>-->
                     </div>
                   </a>
                 </div>
                 <div class="col-sm-4 panel-item">
                   <a class="panel panel-image" href="#">
                     <div class="panel-icon">
-                      <i class="fa-icon-signin icon"></i>
+                      <i class="fa-icon-heart icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Sign-up" width="768" height="300" src="assets/images/demo/panels/panel_bg_hat.jpg"></div>
+                    <div class="panel-heading"><img class="img-responsive-sm" alt="Sign-up" width="768" height="300" src="assets/dashboard.png"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">No More Sign-ups</h3>
-                      <p>You dont have to sign-up or think about signing for 'one' more card.</p>
+                      <h3 class="panel-title">View your rewards at participating busineeses</h3><!--
+                      <p>You dont have to sign-up or think about signing for 'one' more card.</p>-->
                     </div>
                   </a>
                 </div>
@@ -79,10 +74,10 @@
                     <div class="panel-icon">
                       <i class="fa-icon-thumbs-up icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Wallet" width="768" height="300" src="assets/images/demo/panels/panel_bg_chess.jpg"></div>
+                    <div class="panel-heading"><img class="img-responsive-sm" alt="Wallet" width="768" height="300" src="assets/customer.jpg"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">Reclaim your Wallet</h3>
-                      <p>Get rid of all the membership cards you have in your wallet.</p>
+                      <h3 class="panel-title">Redeem points across KC</h3>
+                     <!-- <p>Get rid of all the membership cards you have in your wallet.</p> -->
                     </div>
                   </a>
                 </div>
@@ -92,13 +87,13 @@
               <div class="col-sm-12">
                 <div class="page-header page-header-with-icon">
                   <i class="fa-icon-star"></i>
-                  <h2>Top features</h2>
+                  <h2>SignUp</h2>
                 </div>
                 <div class="text-boxes">
                   <div class="row text-box">
-                    <div class="col-sm-6"><img class="img-responsive center-block" alt="Lorem ipsum dolor sit amet" width="340" height="188" src="assets/images/demo/common/devices.jpg"></div>
+                    <div class="col-sm-6"><img class="img-responsive center-block" alt="Lorem ipsum dolor sit amet" width="340" height="188" src="assets/customer2.jpg"></div>
                     <div class="col-sm-6">
-                      <h3 class="title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
+                      <h3 class="title"><a href="#">Free Signup</a></h3>
                       <p>Mauris at ultricies eros. Morbi vel dui nec arcu suscipit euismod. Phasellus pellentesque lectus eget quam ullamcorper consectetur. Vestibulum vitae risus a erat mollis lac in venenatis tellus. Morbi et tristique lacus.</p>
                       <a class="btn btn-contrast btn-bordered btn-sm" href="#">Read more</a>
                     </div>
