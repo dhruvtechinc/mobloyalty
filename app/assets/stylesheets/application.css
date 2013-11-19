@@ -11,5 +11,6 @@
  *= require_self
  *= require jednotka_blue
  *= require bootstrap.min
+ *= require font-awesome
  *= require_tree .
  */

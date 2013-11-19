@@ -15,6 +15,24 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 	def create
+		if params[:register]
+		@user = User.find_by(email: params[:user][:email].downcase)
+		if @user
+			flash[:user_info] = 'You have already signed-up. Thank you!'	
+		else
+			@user = User.new(user_params)
+			if @user.save
+			flash[:user_info] = 'We got you!'
+			else
+				flash[:user_errors] = @user.errors.full_messages.clone
+			end	
+		end
+			redirect_to root_url(anchor: 'customer')
+		end
+	end
+
+=begin
+	def create
 		Rails.logger.debug params.inspect
 		if params[:merchant] || params[:customer]
 			if params[:customer]
@@ -42,11 +60,37 @@ class UsersController < ApplicationController
 			render "sessions/create"
 		end
 	end
+=end
+
+=begin
+	def create
+		Rails.logger.debug params.inspect
+		params[:user][:merchant_account] = false
+		params[:user][:customer_account] = true
+		@user = User.new(user_params)
+		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		puts @user.inspect
+		if @user.save
+			puts "##################################################################3"
+		      flash[:success] = "We got you!"
+		else
+			puts @user.inspect
+			puts @user.errors.count
+			#render root_url
+	  	end
+	  	puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	  	redirect_to root_url, alert: "Watch it, mister!"
+	end
+	=end
+
+
+=begin
 	def destroy
 	    User.find(params[:id]).destroy
-	    flash[:success] = "User deleted."
+	    flash[:success] = "User deleted"
 	    redirect_to users_url
   end
+=end
 
 private
 

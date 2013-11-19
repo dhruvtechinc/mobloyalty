@@ -12,37 +12,9 @@
           <span class="icon-bar"></span>
         </button>
               <!-- <%= link_to "mob loyalty", '#', id: "logo" %> -->
-      <a class="navbar-brand" href="#">MOB Loyalty <span class="label label-danger">BETA</span></a>
+      <a class="navbar-brand" href="#">mob loyalty <span class="label label-danger">BETA</span></a>
 
     </div>
-    <% if signed_in? %>
-    <div class="collapse navbar-collapse navbar-header-collapse">
-    
-        <ul class="nav navbar-nav navbar-right">
-         <li><%= link_to content_tag(:span, 'Home'),    root_path %></li>
-          <% if current_user.customer_account? %>
-          <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_new_path %></li>
-          <li><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
-          <% elsif current_user.merchant_account? %>
-          <li><%= link_to content_tag(:span, 'Accrue/Redeem Points'),    rewards_new_path %></li>
-          <% end %>
-          <li><%= link_to content_tag(:span, 'Sign out'), signout_path, method: "delete" %></li>
-        </ul>
-      </div>
-        
-        <% else %>
-      <%= form_for :session, url: sessions_path, html: {class: "navbar-form navbar-right"} do |f| %>
-            <div class="form-group">
-               <!--   <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span> -->
-                  <%= f.text_field :email, class: "form-control", placeholder: "Enter your Email" %>
-            </div>
-            <div class="form-group">
-             <!--     <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span> -->
-                  <%= f.password_field :password, class: "form-control", placeholder: "Enter your Password" %>
-            </div>
-            <button class="btn btn-success" type="submit">Sign in</button>
-      <% end %> 
-      <% end %>
     
     </nav>
   </div>

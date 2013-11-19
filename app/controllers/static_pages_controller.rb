@@ -2,13 +2,14 @@ class StaticPagesController < ApplicationController
   
  def home
   	@user = User.new
+    @business = Business.new
   end
 
   def create
-  	if [params[:merchant]] || [params[:customer]]
+  	if [params[:register]] || [params[:customer]]
   		render "user/create"
-  	elsif [params[:signin]]
-  		render "sessions/create"
+  	elsif [params[:refer]]
+  		render "business/create"
   	end
   end
   

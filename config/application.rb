@@ -21,6 +21,7 @@ module Mobloyalty
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "fonts")
   end
 end

@@ -52,6 +52,38 @@
 /*------------------------------------*\
     $UTILITIES
 \*------------------------------------*/
+/**
+Mob Loyalty
+*/
+.wallet {
+  background-image: url("wallet.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+.transparent {
+  background: #000;
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+.happycustomer {
+  background-image: url("happy_customer.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+.kc {
+  background-image: url("kc2.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
 .no-mg {
   margin: 0 !important; }
 
