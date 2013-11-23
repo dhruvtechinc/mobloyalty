@@ -24,6 +24,7 @@ module Mobloyalty
     #config.assets.precompile += %w('bootstrap.min.css', 'jednotka_blue.css')
     config.assets.precompile << Proc.new do |path|
       if path =~ /\.(css|js)\z/
+        puts "actual path:" + path
         full_path = Rails.application.assets.resolve(path).to_path
         app_assets_path = Rails.root.join('app', 'assets').to_path
         if full_path.starts_with? app_assets_path
@@ -37,6 +38,8 @@ module Mobloyalty
         false
       end
     end
+    #config.assets.precompile += ['bootstrap.min.css', 'jednotka_blue.css']
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "fonts")
