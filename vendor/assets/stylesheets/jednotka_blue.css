@@ -56,11 +56,13 @@
 Mob Loyalty
 */
 .wallet {
-  background-image: url("wallet.jpg");
+  background-image: url("https://s3.amazonaws.com/mob-loyalty/wallet-123rf.jpg");
   background-size:cover;
   background-repeat:no-repeat;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
+  width: auto;
+  height: auto;
+  max-height: 535px;
+  max-width: 1920px;
 }
 .transparent {
   background: #000;
@@ -70,18 +72,22 @@ Mob Loyalty
 }
 
 .happycustomer {
-  background-image: url("happy_customer.jpg");
+  background-image: url("https://s3.amazonaws.com/mob-loyalty/shoppers2.jpg");
   background-size:cover;
   background-repeat:no-repeat;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
+  width: auto;
+  height: auto;
+  max-height: 535px;
+  max-width: 1920px;
 }
 .kc {
-  background-image: url("kc2.jpg");
+  background-image: url("https://s3.amazonaws.com/mob-loyalty/kc.jpg");
   background-size:cover;
   background-repeat:no-repeat;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
+  width: auto;
+  height: auto;
+  max-height: 535px;
+  max-width: 1920px;
 }
 
 .no-mg {

@@ -1,5 +1,5 @@
 <div id="main" role="main">
-  <div class="carousel-blur flexslider fade-loading" id="carousel-example-1">
+  <div class="hero-carousel carousel-contrast carousel-contrast-arrows carousel-contrast-pagination flexslider fade-loading" id="carousel-example-1">
     <ul class="slides">
       <li class="item flex-active-slide kc" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
         <div class="container">
@@ -7,7 +7,8 @@
             <div class="col-lg-12 animate">
               <h4 class="big fadeInUp animated">Unique Loyalty, Universal Rewards</h4>
                 <p class="normal fadeInUp animated">Exclusive to Kansas City</p>
-                <%= link_to "Join Now", new_user_path(:whois => "customer"), method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
+<!--                <%= link_to "Join Now", new_user_path(:whois => "customer"), method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %> -->
+                <%= link_to "Join Now", "#customer", method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
               </div>
             </div>
           </div>
@@ -29,7 +30,7 @@
                   <div class="col-lg-12 animate">
                     <h2 class="big fadeInRightBig animated">Join the mob today, for free</h2>
                     <p class="normal fadeInLeftBig animated">Start earning points at your favorite KC businesses with nothing more than your email address.</p>
-                <%= link_to "Join Now", new_user_path(:whois => "customer"), method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
+                <%= link_to "Join Now", "#customer", method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
                   </div>
                 </div>
               </div>
@@ -40,7 +41,7 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                <p class="lead lead-lg text-center">You won't loose one more card coz you'll have none!</p>
+                <p class="lead lead-lg text-center">Don't loose one more card, ever!</p>
               </div>
             </div>
             <div class="panels-wrapper">
@@ -50,7 +51,7 @@
                     <div class="panel-icon">
                       <i class="fa-icon-signin icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Loyalty" width="768" height="300" src="assets/email.jpg"></div>
+                    <div class="panel-heading"><img class="img-responsive-sm" alt="Loyalty" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/signup.jpg"></div>
                     <div class="panel-body">
                       <h3 class="panel-title">Sign-up for free, today!</h3>
                     </div>
@@ -61,7 +62,7 @@
                     <div class="panel-icon">
                       <i class="fa-icon-heart icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Sign-up" width="768" height="300" src="assets/dashboard.png"></div>
+                    <div class="panel-heading"><img class="img-responsive-sm" alt="Sign-up" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/dashboard.png"></div>
                     <div class="panel-body">
                       <h3 class="panel-title">View your rewards at participating busineeses</h3>
                     </div>
@@ -72,7 +73,7 @@
                     <div class="panel-icon">
                       <i class="fa-icon-thumbs-up icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Wallet" width="768" height="300" src="assets/customer.jpg"></div>
+                    <div class="panel-heading"><img class="img-responsive-sm" alt="Wallet" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/happy_customer.jpg"></div>
                     <div class="panel-body">
                       <h3 class="panel-title">Redeem points across KC</h3>
                     </div>
@@ -90,7 +91,7 @@
                 <section id="customer">
                 <div class="text-boxes">
                   <div class="row text-box">
-                    <div class="col-sm-6"><img class="img-responsive center-block" alt="Customer" width="340" height="188" src="assets/customer2.jpg"></div>
+                    <div class="col-sm-6"><img class="img-responsive center-block" alt="Customer" width="340" height="188" src="https://s3.amazonaws.com/mob-loyalty/customers.jpg"></div>
                     <div class="col-sm-6">
                       
                       <%= render 'layouts/register' %>
@@ -100,7 +101,7 @@
                   <hr>
                   <section id="business">
                   <div class="row text-box">
-                    <div class="col-sm-6 col-sm-push-6"><img class="img-responsive center-block" alt="Business Owner" width="330" height="183" src="assets/business_owner.jpg"></div>
+                    <div class="col-sm-6 col-sm-push-6"><img class="img-responsive center-block" alt="Business Owner" width="330" height="183" src="https://s3.amazonaws.com/mob-loyalty/business_owner.jpg"></div>
                     <div class="col-sm-6 col-sm-pull-6">
                     <h3 class="title">Refer your favorite Business!</h3>
                     <br/>
@@ -111,6 +112,8 @@
                 </div>
               </div>
             </div>
+            <div class="row"><div class="col-sm-12"></div></div>
+            <!--
             <div class="row">
               <div class="col-sm-12">
                 <div class="page-header page-header-with-icon">
@@ -230,3 +233,4 @@
           <i class="fa-icon-chevron-up"></i>
         </div>
       </div>
+      -->
