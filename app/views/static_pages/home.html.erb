@@ -1,5 +1,5 @@
 <div id="main" role="main">
-  <div class="hero-carousel carousel-contrast carousel-contrast-arrows carousel-contrast-pagination flexslider fade-loading" id="carousel-example-1">
+  <div class="hero-carousel carousel-blur carousel-blur-arrows carousel-blur-pagination flexslider fade-loading" id="carousel-example-1">
     <ul class="slides">
       <li class="item flex-active-slide kc" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
         <div class="container">
@@ -41,13 +41,13 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                <p class="lead lead-lg text-center">Don't loose one more card, ever!</p>
+                <p class="lead lead-lg text-center">Shrink your Wallet. Don't loose one more card. EVER!</p>
               </div>
             </div>
             <div class="panels-wrapper">
               <div class="row panels">
                 <div class="col-sm-4 panel-item">
-                  <a class="panel panel-image" href="#">
+                  <span class="panel panel-image">
                     <div class="panel-icon">
                       <i class="fa-icon-signin icon"></i>
                     </div>
@@ -55,21 +55,21 @@
                     <div class="panel-body">
                       <h3 class="panel-title">Sign-up for free, today!</h3>
                     </div>
-                  </a>
+                  </span>
                 </div>
                 <div class="col-sm-4 panel-item">
-                  <a class="panel panel-image" href="#">
+                  <span class="panel panel-image">
                     <div class="panel-icon">
                       <i class="fa-icon-heart icon"></i>
                     </div>
                     <div class="panel-heading"><img class="img-responsive-sm" alt="Sign-up" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/dashboard.png"></div>
                     <div class="panel-body">
-                      <h3 class="panel-title">View your rewards at participating busineeses</h3>
+                      <h3 class="panel-title">View your rewards at participating businesses</h3>
                     </div>
-                  </a>
+                  </span>
                 </div>
                 <div class="col-sm-4 panel-item">
-                  <a class="panel panel-image" href="#">
+                  <span class="panel panel-image">
                     <div class="panel-icon">
                       <i class="fa-icon-thumbs-up icon"></i>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="panel-body">
                       <h3 class="panel-title">Redeem points across KC</h3>
                     </div>
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -91,7 +91,26 @@
                 <section id="customer">
                 <div class="text-boxes">
                   <div class="row text-box">
-                    <div class="col-sm-6"><img class="img-responsive center-block" alt="Customer" src="https://s3.amazonaws.com/mob-loyalty/customers.jpg"></div>
+                    <div class="col-sm-6">
+                    <div class="icon-boxes icon-boxes-lg">
+                      <div class="row mg-b">
+                        <div class="col-sm-12 icon-box">
+                     
+                          <!-- icon -->
+                          <div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+                            <i class="fa-icon-lightbulb text-white"></i>
+                          </div>
+                     
+                          <div class="content">
+                            
+                            <h3>That's it! We Promise!!</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <img class="img-responsive center-block" alt="Customer" src="https://s3.amazonaws.com/mob-loyalty/customers.jpg">
+                    </div>
                     <div class="col-sm-6">
                       
                       <%= render 'layouts/register' %>

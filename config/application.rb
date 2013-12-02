@@ -38,11 +38,11 @@ module Mobloyalty
         false
       end
     end
-    #config.assets.precompile += ['bootstrap.min.css', 'jednotka_blue.css']
-    config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
+    #config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "fonts")
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg *.eot *.woff *.ttf)
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf)
+    config.assets.precompile += ['bootstrap.min.css', 'jednotka_blue.css', 'docs.css']
     config.assets.precompile += ["fontawesome-webfont.ttf",
                          "fontawesome-webfont.eot",
                          "fontawesome-webfont.svg",
