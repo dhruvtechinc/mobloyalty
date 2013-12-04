@@ -41,7 +41,11 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                <p class="lead lead-lg text-center">Shrink your Wallet. Don't loose one more card. EVER!</p>
+                <div class="panel panel-bordered">
+                <div class="panel-body">
+                <p class="mobFonts lead lead-lg text-center"><b>Shrink your Wallet. Don't loose one more card. EVER!</b></p>
+                </div>
+                </div>
               </div>
             </div>
             <div class="panels-wrapper">
@@ -51,9 +55,11 @@
                     <div class="panel-icon">
                       <i class="fa-icon-signin icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Loyalty" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/signup.jpg"></div>
+                    <div class="panel-heading">
+                      <%= image_tag("signup.jpg", :size => "768x300", :alt => "Loyalty", :class => "img-responsive-sm") %>
+                    </div>
                     <div class="panel-body">
-                      <h3 class="panel-title">Sign-up for free, today!</h3>
+                      <h3 class="panel-title">Sign Up for free, today!</h3>
                     </div>
                   </span>
                 </div>
@@ -62,7 +68,9 @@
                     <div class="panel-icon">
                       <i class="fa-icon-heart icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Sign-up" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/dashboard.png"></div>
+                    <div class="panel-heading">
+                    <%= image_tag("dashboard.png", :size => "768x300", :alt => "Sign Up", :class => "img-responsive-sm") %>
+                    </div>
                     <div class="panel-body">
                       <h3 class="panel-title">View your rewards at participating businesses</h3>
                     </div>
@@ -73,7 +81,9 @@
                     <div class="panel-icon">
                       <i class="fa-icon-thumbs-up icon"></i>
                     </div>
-                    <div class="panel-heading"><img class="img-responsive-sm" alt="Wallet" width="768" height="300" src="https://s3.amazonaws.com/mob-loyalty/happy_customer.jpg"></div>
+                    <div class="panel-heading">
+                    <%= image_tag("happy_customer.jpg", :size => "768x300", :alt => "Wallet", :class => "img-responsive-sm") %>
+                    </div>
                     <div class="panel-body">
                       <h3 class="panel-title">Redeem points across KC</h3>
                     </div>
@@ -86,7 +96,7 @@
               <div class="col-sm-12">
                 <div class="page-header page-header-with-icon">
                   <i class="fa-icon-star"></i>
-                  <h2>SignUp</h2>
+                  <h2>Sign Up</h2>
                 </div>
                 <section id="customer">
                 <div class="text-boxes">
@@ -108,8 +118,7 @@
                         </div>
                       </div>
                     </div>
-                    
-                    <img class="img-responsive center-block" alt="Customer" src="https://s3.amazonaws.com/mob-loyalty/customers.jpg">
+                    <%= image_tag("customers.jpg", :size => "768x300", :alt => "Customer", :class => "img-responsive-sm") %>
                     </div>
                     <div class="col-sm-6">
                       
@@ -120,7 +129,9 @@
                   <hr>
                   <section id="business">
                   <div class="row text-box">
-                    <div class="col-sm-6 col-sm-push-6"><img class="img-responsive center-block" alt="Business Owner" src="https://s3.amazonaws.com/mob-loyalty/business_owner.jpg"></div>
+                    <div class="col-sm-6 col-sm-push-6">
+                    <%= image_tag("business_owner.jpg", :size => "768x300", :alt => "Business Owner", :class => "img-responsive-sm") %>
+                    </div>
                     <div class="col-sm-6 col-sm-pull-6">
                     <h3 class="title">Refer your favorite Business!</h3>
                     <br/>
