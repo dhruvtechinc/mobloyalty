@@ -42,7 +42,7 @@ module Mobloyalty
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "fonts")
     config.assets.precompile += %w(*.jpg *.png *.svg *.eot *.woff *.ttf)
-    config.assets.precompile += ['bootstrap.min.css.erb', 'jednotka_blue.css.erb', 'docs.css']
+    config.assets.precompile += ['mobloyalty.css.erb', 'bootstrap.min.css.erb', 'jednotka_blue.css.erb', 'docs.css']
     config.assets.precompile += ["fontawesome-webfont.ttf",
                          "fontawesome-webfont.eot",
                          "fontawesome-webfont.svg",
