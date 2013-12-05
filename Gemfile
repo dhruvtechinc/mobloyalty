@@ -11,7 +11,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'#, :require => "bcrypt"
 # Use sqlite3 as the database for Active Record
 group :development do
 	gem 'sqlite3', '1.3.8'
-#  gem 'pg', '0.15.1'
 	gem 'rspec-rails', '2.13.1'
 end
 
