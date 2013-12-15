@@ -1,53 +1,8 @@
 <div id="main" role="main">
-  <div class="hero-carousel carousel-blur carousel-blur-arrows carousel-blur-pagination flexslider fade-loading" id="carousel-example-1">
-    <ul class="slides">
-      <li class="item flex-active-slide kc" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 animate">
-              <h4 class="big fadeInUp animated">Unique Loyalty, Universal Rewards</h4>
-                <p class="normal fadeInUp animated">Exclusive to Kansas City</p></br>
-<!--                <%= link_to "Join Now", new_user_path(:whois => "customer"), method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %> -->
-                <%= link_to "Join Now", "#customer", method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="item wallet" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 animate">
-                <h3 class="big fadeInLeftBig animate">Are you tired of carrying 100 different Loyalty cards for all your favorite establishments?</h3>
-                    <!--<p class="normal fadeInRightBig animate">MOB Days, MOB Week, MOB Deals</p>
-                <%= link_to "Connect with Family!", new_user_path(:whois => "merchant"), method: "GET", :class => "btn btn-contrast btn-lg fadeInDownBig animate" %>-->
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="item happycustomer" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-12 animate">
-                    <h2 class="big fadeInRightBig animated">Join the mob today, for free</h2>
-                    <p class="normal fadeInLeftBig animated">Start earning points at your favorite KC businesses with nothing more than your email address.</p>
-                <%= link_to "Join Now", "#customer", method: "GET", :class => "btn btn-contrast btn-lg fadeInRight animated" %>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="flex-active">3</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next" href="#"></a></li></ul></div>
+<%= render 'layouts/carousel' %>
         <div id="main-content">
           <div class="container">
             <div class="row">
-              <div class="col-sm-12">
-                <div class="panel panel-bordered">
-                <div class="panel-body">
-                <p class="mobFonts lead lead-lg text-center"><b>Shrink your Wallet. Don't loose one more card. EVER!</b></p>
-                </div>
-                </div>
-              </div>
-            </div>
             <div class="panels-wrapper">
               <div class="row panels">
                 <div class="col-sm-4 panel-item">
@@ -113,7 +68,7 @@
                      
                           <div class="content">
                             
-                            <h3>That's it! We Promise!!</h3>
+                            <h3>This is it! We Promise!!</h3>
                           </div>
                         </div>
                       </div>
@@ -127,6 +82,7 @@
                   </div>
                   </section>
                   <hr>
+            <!--                  
                   <section id="business">
                   <div class="row text-box">
                     <div class="col-sm-6 col-sm-push-6">
@@ -143,7 +99,7 @@
               </div>
             </div>
             <div class="row"><div class="col-sm-12"></div></div>
-            <!--
+
             <div class="row">
               <div class="col-sm-12">
                 <div class="page-header page-header-with-icon">

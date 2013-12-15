@@ -1,0 +1,85 @@
+<% provide(:title, 'Business Registration') %>
+<div id="main-content-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 icon-box">
+ <!-- icon -->
+      <div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+        <i class="fa-icon-pencil text-white"></i>
+      </div>
+ 
+      <div class="content">
+        <h1 class="title">Business Registration</h1>
+      </div>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+       <%= form_for (@business), html: {class: "text-left"} do |f| %>
+
+       <fieldset>
+        <% flash.each do |key, value| %>
+        <% if key.to_s.start_with?('business_') %> 
+        <% if value.respond_to?('each') %>
+
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            <ul>
+              <% value.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+
+          </div>
+        </div>
+
+        <% else %>
+        <div id="error_explanation">
+          <div class="alert alert-danger"><%= value %>
+
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+        <% end %>
+        <div class="form-group">
+          <%= f.label :name,"Business/business Name" %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter business name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :address,"Street Address" %>
+          <%= f.text_field :address, class: "form-control", placeholder: "Enter businesss street address" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :city,"City" %>
+          <%= f.text_field :city, class: "form-control", placeholder: "Enter businesss city name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :state,"State" %>
+          <%= f.text_field :state, class: "form-control", placeholder: "Enter businesss state name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :zip,"Zip Code" %>
+          <%= f.text_field :zip, class: "form-control", placeholder: "Enter businesss zip code" %>
+        </div>                    
+        <div class="form-group">
+          <%= f.label :phone_number,"Businesses Phone Number" %>
+          <%= f.text_field :phone_number, class: "form-control", placeholder: "Enter Businesses phone number" %>
+        </div>                    
+        <div class="btn-group">
+          <%= f.submit "Refer", class: "btn btn-lg btn-info", name: "refer" %>
+        </div>
+        <div class="btn-group">
+          <%= f.submit "Clear", class: "btn btn-lg", name: "clear", type: "reset" %>
+        </div>                      
+      </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

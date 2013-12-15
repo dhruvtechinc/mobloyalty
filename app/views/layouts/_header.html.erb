@@ -1,9 +1,8 @@
 <!--<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner"> -->
 <header id="header">
   <div class="container">
-    <nav class="navbar navbar-default" id="nav">
+    <nav class="navbar navbar-default" id="nav" role="navigation">
       <div class="navbar-header">
- 
         <!-- navigation toggler on small screens -->
         <button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button">
           <span class="sr-only">Toggle navigation</span>
@@ -12,10 +11,25 @@
           <span class="icon-bar"></span>
         </button>
               <!-- <%= link_to "mob loyalty", '#', id: "logo" %> -->
-      <a class="navbar-brand" href="#">mob loyalty <span class="label label-danger">BETA</span></a>
+      <a class="navbar-brand" href="#"><%= image_tag("MobLogo2.png", :size => "150x90", :alt => "MobLogo") %> <span class="label label-danger">BETA</span></a>
 
     </div>
-    
-    </nav>
+    <div class="collapse navbar-collapse navbar-header-collapse">
+    <% if signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+         <li><%= link_to content_tag(:span, 'Home'),    root_path %></li>
+          <% if current_user.customer_account? %>
+          <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_new_path %></li>
+          <li class="active"><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
+          <% elsif current_user.merchant_account? %>
+          <li><%= link_to content_tag(:span, 'Accrue Points'),    rewards_new_path(ar: "Accrue") %></li>
+          <li><%= link_to content_tag(:span, 'Redeem Points'),    rewards_new_path(ar: "Redeem") %></li>
+          <% end %>
+          <li><%= link_to content_tag(:span, 'Sign out'), signout_path, method: "delete" %></li>
+        </ul>
+        <% else %>
+          <%= render 'layouts/signin' %>
+        <% end %>
+    </div>
   </div>
 </header>

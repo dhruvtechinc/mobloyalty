@@ -1,31 +1,32 @@
 Mobloyalty::Application.routes.draw do
- # get "rewards/new"
-  #get "rewards/create"
-  #get "rewards/show"
-  #get "membership/new"
-  #get "membership/show"
-  #get "store_searches/new"
+  get "rewards/new"
+  get "rewards/create"
+  get "rewards/show"
+  get "membership/new"
+  get "membership/show"
+  get "store_searches/new"
+  get "businesses/new"
   #post "membership/add"
   #require File.expand_path("../../lib/logged_in_constraint", __FILE__)
   resources :users
   resources :businesses
   resources :sessions, only: [:new, :create, :destroy]
-  #resources :stores
-  #resources :store_searches
-  #resources :membership
-  #resources :rewards
+  resources :stores
+  resources :store_searches
+  resources :membership
+  resources :rewards
   root "static_pages#home" #, constraints: LoggedInConstraint.new(false)
   #root to: "users#new", constraints: LoggedInConstraint.new(true)
   #root  'users#new'
   
-  #match '/signup',  to: 'users#new',              via: 'get'
-  #match '/signin',  to: 'sessions#new',           via: 'get'
-  #match '/signout', to: 'sessions#destroy',       via: 'delete'
-  #match '/signout', to: 'sessions#destroy',       via: 'get'
-  #match '/help',    to: 'static_pages#help',      via: 'get'
-  #match '/about',   to: 'static_pages#about',     via: 'get'
-  #match '/contact', to: 'static_pages#contact',   via: 'get'
-  #match '/membership/add', to: 'store_searches#add', via: 'post'
+  match '/signup',  to: 'users#new',              via: 'get'
+  match '/signin',  to: 'sessions#new',           via: 'get'
+  match '/signout', to: 'sessions#destroy',       via: 'delete'
+  match '/signout', to: 'sessions#destroy',       via: 'get'
+  match '/help',    to: 'static_pages#help',      via: 'get'
+  match '/about',   to: 'static_pages#about',     via: 'get'
+  match '/contact', to: 'static_pages#contact',   via: 'get'
+  match '/membership/add', to: 'store_searches#add', via: 'post'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -19,18 +19,42 @@ class UsersController < ApplicationController
 		if params[:register]
 		@user = User.find_by(email: params[:user][:email].downcase)
 		if @user
-			flash[:user_info] = 'You have already signed-up. Thank you!'	
+			flash[:user_info] = 'You have already signed-up. Please Sign In'	
 		else
 			@user = User.new(user_params)
 			if @user.save
-			flash[:user_info] = 'We got you!'
+				puts "Save successful"
+				flash[:user_info] = 'We got you!'
+				sign_in @user
+				redirect_to :controller => 'membership', :action => 'show', :id => @user.id
 			else
+				puts "User Error"
 				flash[:user_errors] = @user.errors.full_messages.clone
+				redirect_to root_url(anchor: 'customer')
 			end	
 		end
-			redirect_to root_url(anchor: 'customer')
+		elsif params[:signin]
+			render "sessions/create"
 		end
+		
 	end
+
+
+	def destroy
+	    User.find(params[:id]).destroy
+	    flash[:success] = "User deleted"
+	    redirect_to users_url
+  end
+
+
+private
+
+def user_params
+	params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :customer_account, :merchant_account, :password,
+		:password_confirmation)
+end
+
+end
 
 =begin
 	def create
@@ -82,22 +106,6 @@ class UsersController < ApplicationController
 	  	puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	  	redirect_to root_url, alert: "Watch it, mister!"
 	end
-	=end
-
-
-=begin
-	def destroy
-	    User.find(params[:id]).destroy
-	    flash[:success] = "User deleted"
-	    redirect_to users_url
-  end
 =end
 
-private
 
-def user_params
-	params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :customer_account, :merchant_account, :password,
-		:password_confirmation)
-end
-
-end

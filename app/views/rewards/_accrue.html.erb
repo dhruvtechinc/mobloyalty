@@ -1,0 +1,92 @@
+<div id="main-content-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 icon-box">
+       <!-- icon -->
+       <div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+        <i class="fa-icon-trophy text-white"></i>
+      </div>
+
+      <div class="content">
+        <h1 class="title">Accrue Points</h1>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<div id="main-content">
+  <div class="container bs-docs-container">
+   <div class="container">
+    <div class="row">
+
+      <div class="col-sm-6 col-sm-offset-3">
+          <div class="stand-out-form">
+           <%= form_for (@reward), html: {class: "text-left"} do |f| %>
+           
+           <fieldset>
+                <% flash.each do |key, value| %>
+                <% if key.to_s.start_with?('accrued_')  %>
+                <% if value.respond_to?('each') %>
+                  
+                  <div id="error_explanation">
+                    <div class="alert alert-danger">
+                <ul>
+                  <% value.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ul>
+
+                    </div>
+                  </div>
+                  
+                <% else %>
+                  <div id="error_explanation">
+                    <div class="alert alert-danger"><%= value %>
+
+                    </div>
+                  </div>
+                <% end %>
+                <% end %>
+                <% end %>
+            <% if @reward.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                The form contains <%= pluralize(@reward.errors.count, "error") %>.
+                
+                <ul>
+                  <% @reward.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <% end %>
+            <div class="form-group">
+              <%= f.label :email,"Email" %>
+              <%= f.text_field :email, class: "form-control", input_html: {value: ''}, placeholder: "Enter customer email" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :phone_number,"Phone Number" %>
+              <%= f.text_field :phone_number, class: "form-control", input_html: {value: ''}, placeholder: "Enter customer Phone Number" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :receipt_no,"Receipt Number" %>
+              <%= f.text_field :receipt_no, class: "form-control", placeholder: "Enter your Receipt Number" %>
+            </div>                    
+            <div class="form-group">
+              <%= f.label :amount,"Amount" %>
+              <%= f.text_field :amount, class: "form-control", placeholder: "Enter Amount to Redeem" %>
+            </div>                    
+            <div class="btn-group">
+              <%= f.submit "Accrue Points", class: "btn btn-lg btn-info", name: "accrue" %>
+            </div>
+          </fieldset>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</div>

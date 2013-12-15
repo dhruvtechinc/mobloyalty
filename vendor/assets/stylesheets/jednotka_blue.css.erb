@@ -73,6 +73,15 @@ Mob Loyalty
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
+.businessowner {
+  background-image: url(<%= asset_path 'business_owner2.jpg' %>);
+  background-size:cover;
+  background-repeat:no-repeat;
+  width: auto;
+  height: auto;
+  max-height: 535px;
+  max-width: 1920px;
+}
 
 .happycustomer {
   background-image: url(<%= asset_path 'shoppers2.jpg' %>);
@@ -5814,12 +5823,12 @@ background:rgba(0,0,0,0.66);
 }
 
 #wrapper {
-  /*background-repeat: no-repeat;*/
+  background-repeat: no-repeat;
   background-position: center 0;
-  background-image: url(<%= asset_path 'blue-bg-100.png' %>); }
+  background-image: url(<%= asset_path 'shoppers2.jpg' %>); }
   @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
     #wrapper {
-      background-image: url(<%= asset_path 'bg_wrapper@2x.jpg' %>);
+      background-image: url(<%= asset_path 'shoppers2@2x.jpg' %>);
       background-size: 1920px 535px; } }
 
 #main-content {
@@ -7685,7 +7694,9 @@ body.boxed .carousel-blur .flex-direction-nav .flex-next {
 .carousel-blur {
   position: relative;
   min-height: 380px; 
+  /* Sudheer - Added to mix contrast and blur 
 top: -91px;
+*/
   margin-bottom: -91px;}
   .carousel-blur .slides {
     margin: 0;
@@ -7902,8 +7913,8 @@ body.boxed .carousel-contrast .flex-direction-nav .flex-next {
     margin: 0; }
   .carousel-contrast .big, .carousel-contrast .carousel-blur .normal, .carousel-blur .carousel-contrast .normal, .carousel-contrast .carousel-image .normal, .carousel-image .carousel-contrast .normal {
     color: white;
-    font-family: "Roboto";
-    font-weight: 500;
+    font-family: "Oswald";
+    font-weight: 400;
     margin: 0;
     margin-top: 50px;
     margin-bottom: 10px;
@@ -7926,15 +7937,16 @@ body.boxed .carousel-contrast .flex-direction-nav .flex-next {
       background-color: rgba(0, 0, 0, 0.6); }
   .carousel-contrast .normal {
     color: white;
-    font-family: "Roboto";
-    font-weight: 300;
+    font-family: "Oswald";
+    font-weight: 400;
     margin: 0;
     padding: 15px 30px;
     display: inline-block;
     font-size: 18px;
     line-height: 22px;
+    /** Sudheer - commented to remove backdrop
     background-color: black;
-    background-color: rgba(0, 0, 0, 0.6); }
+    background-color: rgba(0, 0, 0, 0.6); */ }
     @media (min-width: 768px) and (max-width: 991px) {
       .carousel-contrast .normal {
         font-size: 24px;
@@ -7953,7 +7965,9 @@ body.boxed .carousel-contrast .flex-direction-nav .flex-next {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); }
   .carousel-contrast .item {
     display: none;
-    padding-top: 91px; }
+    padding-top: 91px; 
+    /* Sudheer - Added - 12/8/2013 */
+    text-align: center;}
   .carousel-contrast .flex-control-paging {
     position: absolute;
     padding: 0;

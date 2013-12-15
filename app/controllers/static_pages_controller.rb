@@ -8,6 +8,8 @@ class StaticPagesController < ApplicationController
   def create
   	if [params[:register]] || [params[:customer]]
   		render "user/create"
+    elsif [params[:signin]]
+      render "sessions/create"
   	elsif [params[:refer]]
   		render "business/create"
   	end

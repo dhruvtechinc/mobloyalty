@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
 			if user.customer_account?
 				redirect_to :controller => 'membership', :action => 'show', :id => user.id #, :something => 'else' "/membership/show"
 			elsif user.merchant_account?
-				redirect_to :controller => 'rewards', :action => 'new', :id => user.id #, :something => 'else' "/membership/show"
+				redirect_to :controller => 'rewards', :action => 'new', :id => user.id, :ar => 'Accrue' #, :something => 'else' "/membership/show"
 			end
 				
 		else
-			flash[:error] = 'Invalid email/password combination'
+			flash[:signin_error] = 'Invalid email/password combination'
 			redirect_to root_url
 		end		
 	end

@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  #require "bcrypt"
-  #has_many :memberships
+  require "bcrypt"
+  has_many :memberships
   has_many :stores
   before_save { self.email = email.downcase }
-  #before_create :create_remember_token
+  before_create :create_remember_token
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :phone_number, allow_blank: true, presence: true, length: { maximum: 10 }
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
-=begin
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -27,5 +27,5 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
-=end
+
 end

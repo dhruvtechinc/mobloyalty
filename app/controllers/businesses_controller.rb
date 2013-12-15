@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
 	def index
 	end
 	def new
+		@business = Business.new
 	end
 	def show
 	end
@@ -13,7 +14,9 @@ class BusinessesController < ApplicationController
 			else
 				flash[:business_errors] = @business.errors.full_messages.clone
 			end	
-			redirect_to root_url(anchor: 'business')
+			# redirect_to root_url(anchor: 'business') - this was used to in Single Page approach to redirect to root url
+			@business = Business.new
+			render 'new'
 		end
 
 	end

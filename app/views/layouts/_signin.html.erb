@@ -1,0 +1,48 @@
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="active">
+  </br>
+  <%= form_for :session, url: sessions_path, html: {class: "navbar-form navbar-right"} do |f| %>
+  <fieldset>
+                <% flash.each do |key, value| %>
+                <% if key.to_s.start_with?('signin_')  %>
+                <% if value.respond_to?('each') %>
+                  
+                  <div id="error_explanation">
+                    <div class="alert alert-danger">
+                <ul>
+                  <% value.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ul>
+
+                    </div>
+                  </div>
+                  
+                <% else %>
+                  <div id="error_explanation">
+                    <div class="alert alert-danger"><%= value %>
+
+                    </div>
+                  </div>
+                <% end %>
+                <% end %>
+                <% end %>
+    <div class="form-group">
+      <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+    </div>
+    
+    <%= f.submit "Sign in", class: "btn btn-info", name: "signin" %>
+  </fieldset>
+  <% end %>
+  
+  
+  
+  </li>
+
+</ul>
+
+
