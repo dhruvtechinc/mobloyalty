@@ -25,6 +25,16 @@ class StoreSearchesController < ApplicationController
         render 'new'
   end
 
+  def index
+      @stores = Store.all.order('name ASC').where.not(:id => current_user.memberships.map(&:store_id))
+
+        if @stores.empty?
+          flash[:notice] = "Wuh hu! You have Membership with all MobLoyalty Businesses!"
+        end
+        render 'new'
+  end
+
+
   def add
     #@storesearch = StoreSearch.new(store_search_params)
     userId = current_user.id #session[:user][:id]
@@ -38,10 +48,6 @@ class StoreSearchesController < ApplicationController
     end
 
     render 'new'
-  end
-
-  def show
-
   end
 
   def find

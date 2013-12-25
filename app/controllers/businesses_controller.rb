@@ -10,7 +10,7 @@ class BusinessesController < ApplicationController
 		if params[:refer]
 			@business = Business.new(business_params)
 			if @business.save
-			flash[:business_info] = 'Got it, Thanks!'
+			flash[:business_info] = 'Got it, Thanks! We will be contacting you shortly!'
 			else
 				flash[:business_errors] = @business.errors.full_messages.clone
 			end	

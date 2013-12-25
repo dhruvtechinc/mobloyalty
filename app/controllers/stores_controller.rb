@@ -21,7 +21,7 @@ class StoresController < ApplicationController
 	end
 
 	def stores_params
-		params[:store][:store_number] = "1"
+		params[:store][:store_number] = Store.maximum(:store_number).to_i + 1
 		params.require(:store).permit(:name, :address, :city, :state, :zip, :store_phone_number, :store_number)
 	end
 end

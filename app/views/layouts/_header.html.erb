@@ -19,11 +19,12 @@
       <ul class="nav navbar-nav navbar-right">
          <li><%= link_to content_tag(:span, 'Home'),    root_path %></li>
           <% if current_user.customer_account? %>
-          <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_new_path %></li>
+          <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_path %></li>
           <li class="active"><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
           <% elsif current_user.merchant_account? %>
           <li><%= link_to content_tag(:span, 'Accrue Points'),    rewards_new_path(ar: "Accrue") %></li>
           <li><%= link_to content_tag(:span, 'Redeem Points'),    rewards_new_path(ar: "Redeem") %></li>
+          <li><%= link_to content_tag(:span, 'Widget'),    rewards_new_path(ar: "Redeem") %></li>
           <% end %>
           <li><%= link_to content_tag(:span, 'Sign out'), signout_path, method: "delete" %></li>
         </ul>
