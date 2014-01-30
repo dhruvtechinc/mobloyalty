@@ -29,7 +29,7 @@ class StoreSearchesController < ApplicationController
       @stores = Store.all.order('name ASC').where.not(:id => current_user.memberships.map(&:store_id))
 
         if @stores.empty?
-          flash[:notice] = "Wuh hu! You have Membership with all MobLoyalty Businesses!"
+          flash[:notice] = "Woo hoo! You have Membership with all MobLoyalty Businesses!"
         end
         render 'new'
   end

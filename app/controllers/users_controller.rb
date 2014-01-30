@@ -16,21 +16,37 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 	def create
-		if params[:register]
+		if params[:register] || params[:signup]
 		@user = User.find_by(email: params[:user][:email].downcase)
 		if @user
-			flash[:user_info] = 'You have already signed-up. Please Sign In'	
+				if params[:register]
+					flash[:user_info] = 'You are already a MobLoyalty member! Please sign in above.'	
+					redirect_to root_url(anchor: 'customer')
+				else
+					flash[:user_info] = 'You are already a MobLoyalty member! Provide your email address or phone number as an identification'	
+					render 'new'
+				end
 		else
 			@user = User.new(user_params)
 			if @user.save
 				puts "Save successful"
-				flash[:user_info] = 'We got you!'
-				sign_in @user
-				redirect_to :controller => 'membership', :action => 'show', :id => @user.id
+				flash[:user_info] = 'You are Registered with Mob Loyalty! Welcome to our family'
+				if params[:register]
+					sign_in @user
+					redirect_to :controller => 'membership', :action => 'show', :id => @user.id
+				else
+					@user = User.new
+					render 'new'
+				end
 			else
 				puts "User Error"
 				flash[:user_errors] = @user.errors.full_messages.clone
-				redirect_to root_url(anchor: 'customer')
+				if params[:register]
+					redirect_to root_url(anchor: 'customer')
+				else
+					render 'new'
+				end
+
 			end	
 		end
 		elsif params[:signin]
@@ -50,6 +66,7 @@ class UsersController < ApplicationController
 private
 
 def user_params
+	params[:user][:phone_number] = params[:user][:phone_number].delete("^0-9")
 	params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :customer_account, :merchant_account, :password,
 		:password_confirmation)
 end

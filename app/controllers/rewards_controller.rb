@@ -6,33 +6,38 @@ class RewardsController < ApplicationController
   end
 
   def create
+
       ar = params[:accrue] ? params[:accrue]["Accrue"] : params[:redeem]["Redeem"]
+      # Error if both email and phone number are blank
       if params[:reward][:email].blank? && params[:reward][:phone_number].blank?
         flash[:error] = "Please Enter either Email or Phone number"
         redirect_to rewards_new_path(ar: ar)
         return
       end
+      # Error if both email and phone number are present
       if !params[:reward][:email].blank? && !params[:reward][:phone_number].blank?
         flash[:error] = "Please Enter only Email or Phone number, not both"
         redirect_to rewards_new_path(ar: ar)
         return
       end
+      # Validate email, if present
       if !params[:reward][:email].blank? && !validate_email?(params[:reward][:email])
-        puts "##$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
         flash[:error] = "Please Enter valid Email Address"
         redirect_to rewards_new_path(ar: ar)
         return
       end
+      # Validate phone number, if present
       if !params[:reward][:phone_number].blank? && !validate_phone?(params[:reward][:phone_number])
-        puts "phone number                                      $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4"
         flash[:error] = "Please Enter valid Phone Number"
         redirect_to rewards_new_path(ar: ar)
         return
       end
 
       @reward = Reward.new
+      # Get store from logged in user
       store  = current_user.stores.first
 
+      # Find customer/user for Accrue or Redeem, using either email or phone num
       if params[:accrue] || params[:redeem]
         if !params[:reward][:email].empty?
           user = User.where(:email => params[:reward][:email]).first
@@ -40,14 +45,15 @@ class RewardsController < ApplicationController
         if !params[:reward][:phone_number].empty?
           user = User.where(:phone_number => params[:reward][:phone_number]).first
         end
-        puts "22222222222222222222222222222222222222222222"
+        
         puts user.inspect
+        # Error if user not present 
         if user.nil?
           flash[:error] = "We were unable to locate the user. Is the user a MobLoyalty member yet?"
           redirect_to rewards_new_path(ar: ar)
         else
           membership = Membership.where(:user_id => user.id, :store_id => store.id).first
-          puts "333333333333333333333333333333333333333333"
+          
           puts membership.inspect
 
           if !membership
@@ -111,6 +117,7 @@ class RewardsController < ApplicationController
     private
 
     def reward_params
-     params.require(:reward).permit(:email, :phone_number, :membership_id, :receipt_no, :amount, :accrued, :redeemed)
+      params[:reward][:phone_number] = params[:reward][:phone_number].delete("^0-9")
+      params.require(:reward).permit(:email, :phone_number, :membership_id, :receipt_no, :amount, :accrued, :redeemed)
    end
  end

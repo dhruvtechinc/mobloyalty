@@ -11,20 +11,23 @@
           <span class="icon-bar"></span>
         </button>
               <!-- <%= link_to "mob loyalty", '#', id: "logo" %> -->
-      <a class="navbar-brand" href="#"><%= image_tag("MobLogo2.png", :size => "150x90", :alt => "MobLogo") %> <span class="label label-danger">BETA</span></a>
+      <a class="navbar-brand" href="https://www.mobloyalty.com"><%= image_tag("MobLogo2.png", :size => "150x90", :alt => "Mob Loyalty - Awesome Rewards program Logo") %> <span class="label label-danger">BETA</span></a>
 
     </div>
     <div class="collapse navbar-collapse navbar-header-collapse">
     <% if signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-         <li><%= link_to content_tag(:span, 'Home'),    root_path %></li>
+         
           <% if current_user.customer_account? %>
+          <li><%= link_to content_tag(:span, 'Home'),    users_path %></li>
           <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_path %></li>
-          <li class="active"><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
+          <li><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
           <% elsif current_user.merchant_account? %>
+          <li><%= link_to content_tag(:span, 'Home'),    signup_path %></li>
+          <li><%= link_to content_tag(:span, 'Customer Sign up'), signup_path %></li>
           <li><%= link_to content_tag(:span, 'Accrue Points'),    rewards_new_path(ar: "Accrue") %></li>
           <li><%= link_to content_tag(:span, 'Redeem Points'),    rewards_new_path(ar: "Redeem") %></li>
-          <li><%= link_to content_tag(:span, 'Widget'),    rewards_new_path(ar: "Redeem") %></li>
+          <li><%= link_to content_tag(:span, 'Widget'),    widgets_path, method: "show" %></li>
           <% end %>
           <li><%= link_to content_tag(:span, 'Sign out'), signout_path, method: "delete" %></li>
         </ul>

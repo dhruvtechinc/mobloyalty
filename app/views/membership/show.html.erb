@@ -26,7 +26,16 @@
     <a href='#'>
       <div class='image-link'>
         <i class='fa-icon-search'></i>
-        <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+                <% if membership.store.name.start_with?('Paddy') %>
+                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/Paddy-keg.gif" />
+                <% elsif membership.store.name.start_with?('Lotus') %>
+                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/LotusYoga.jpg" />
+                <% elsif membership.store.name.start_with?('IXL') %>
+                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/ixl_logo.jpg" />
+                <% else %>
+                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+                <% end %>
+
       </div>
       <h3 class='title'><%= membership.store.name %></h3>
       <p class='category'>Accrued: <%= membership.rewards.sum(:accrued) - membership.rewards.sum(:redeemed) %></p>

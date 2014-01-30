@@ -12,7 +12,12 @@
     			<a href='#'>
       				<div class='image-link'>
         				<i class='fa-icon-search'></i>
-        				<img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+                <% if store.name.start_with?('Paddy') %>
+                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/Paddy-keg.gif" />
+                <% else %>
+                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+                <% end %>
+        				
       				</div>
       				<h3 class='title'><%= store.name %></h3>
       				<p class='category'><%= link_to "Add", membership_add_path(:store => store.id), method: "create" %></p>

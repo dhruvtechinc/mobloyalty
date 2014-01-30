@@ -6,6 +6,8 @@ Mobloyalty::Application.routes.draw do
   get "membership/show"
   get "store_searches/new"
   get "businesses/new"
+  
+
   #post "membership/add"
   #require File.expand_path("../../lib/logged_in_constraint", __FILE__)
   resources :users
@@ -15,11 +17,13 @@ Mobloyalty::Application.routes.draw do
   resources :store_searches
   resources :membership
   resources :rewards
+  resources :widgets
   root "static_pages#home" #, constraints: LoggedInConstraint.new(false)
   #root to: "users#new", constraints: LoggedInConstraint.new(true)
   #root  'users#new'
   
   match '/signup',  to: 'users#new',              via: 'get'
+  #match '/signup',  to: 'stores#signup',              via: 'get'
   match '/signin',  to: 'sessions#new',           via: 'get'
   match '/signout', to: 'sessions#destroy',       via: 'delete'
   match '/signout', to: 'sessions#destroy',       via: 'get'
@@ -27,6 +31,8 @@ Mobloyalty::Application.routes.draw do
   match '/about',   to: 'static_pages#about',     via: 'get'
   match '/contact', to: 'static_pages#contact',   via: 'get'
   match '/membership/add', to: 'store_searches#add', via: 'post'
+  match '/widgets', to: 'widgets#show', via: 'get', :format => :js
+  #match '/stores/signup', to: 'stores#signup', via: 'get', as: :signup
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -17,11 +17,15 @@ class StoresController < ApplicationController
 	def destroy
 	end
 
+	def signup
+	end
+	
 	def show
 	end
 
 	def stores_params
 		params[:store][:store_number] = Store.maximum(:store_number).to_i + 1
+		params[:store][:store_phone_number] = params[:store][:store_phone_number].delete("^0-9")
 		params.require(:store).permit(:name, :address, :city, :state, :zip, :store_phone_number, :store_number)
 	end
 end
