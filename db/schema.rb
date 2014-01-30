@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118110431) do
+ActiveRecord::Schema.define(version: 20140130045104) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20131118110431) do
   create_table "rewards", force: true do |t|
     t.string   "membership_id"
     t.string   "receipt_no"
-    t.string   "amount"
-    t.string   "accrued"
-    t.string   "redeemed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "amount"
+    t.integer  "accrued"
+    t.integer  "redeemed"
   end
 
   create_table "stores", force: true do |t|
