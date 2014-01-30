@@ -4,11 +4,11 @@
       <div class='image-link'>
         <i class='fa-icon-search'></i>
                         <% if store.name.start_with?('Paddy') %>
-                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/Paddy-keg.gif" />
+                <%= image_tag("Paddy-keg.gif", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
                 <% elsif store.name.start_with?('Lotus') %>
-                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/LotusYoga.jpg" />
+                <%= image_tag("LotusYoga.jpg", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
                 <% elsif store.name.start_with?('IXL') %>
-                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/ixl_logo.jpg" />
+                <%= image_tag("ixl_logo.jpg", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
                 <% else %>
                 <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
                 <% end %>
