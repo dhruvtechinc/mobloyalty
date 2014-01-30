@@ -10,7 +10,7 @@ class MembershipController < ApplicationController
     puts params[:id]
   	@membership = Membership.where(:user_id => params[:id]).paginate(page: params[:page])
   	if @membership.empty?
-  		redirect_to "/store_searches/new"
+  		#redirect_to "/store_searches/new"
   	end
   end
 

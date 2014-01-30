@@ -18,6 +18,9 @@
 </div>
 <div id="main-content">
   <div class="container">
+  <% if @membership.empty? %>
+  <h3> You have not signed-up for any of the businesses yet! Please click on the Search Stores above to get started. </h3>
+  <% else %>
     <%= will_paginate %>
 <div class='row portfolio-boxes' id='portfolio-container'>
 <% @membership.in_groups_of(4, false).each do |membership_array| %>
@@ -48,5 +51,6 @@
 </div>
 
       <%= will_paginate %>
+  <% end %>
   </div>
 </div>
