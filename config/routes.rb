@@ -7,6 +7,7 @@ Mobloyalty::Application.routes.draw do
   get "store_searches/new"
   get "businesses/new"
   
+  
 
   #post "membership/add"
   #require File.expand_path("../../lib/logged_in_constraint", __FILE__)

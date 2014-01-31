@@ -55,5 +55,17 @@
   
       <%= debug(params) if Rails.env.development? %>
       <%= render :partial => 'layouts/ga' if Rails.env.production? %>
+      <%= render :partial => 'layouts/tac' %>
   </body>
+  <script type="text/javascript">
+  $(function() {
+    $("button, input:submit, a", ".actions").button();
+    $('#agree_to_rules').change(function() {
+        $('#Register')
+            .attr('disabled', !this.checked)
+            .toggleClass('ui-button-disabled ui-state-disabled', !this.checked);
+
+    }).change();
+});
+  </script>
 </html>

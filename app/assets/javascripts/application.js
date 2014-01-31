@@ -13,6 +13,7 @@
 //= require jquery.min
 //= require jednotka
 //= require bootstrap.min
+//= require modal
 //= require jquery_ujs
 //= require jquery.isotope.min
 //= require jquery.isotope.sloppy-masonry.min
