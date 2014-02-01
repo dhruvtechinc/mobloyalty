@@ -19,6 +19,7 @@ Mobloyalty::Application.routes.draw do
   resources :membership
   resources :rewards
   resources :widgets
+  resources :qrcodes
   root "static_pages#home" #, constraints: LoggedInConstraint.new(false)
   #root to: "users#new", constraints: LoggedInConstraint.new(true)
   #root  'users#new'

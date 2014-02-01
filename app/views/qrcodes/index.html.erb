@@ -1,0 +1,61 @@
+<div id="main-content-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 icon-box">
+ <!-- icon -->
+      <div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+        <i class="fa-icon-qrcode text-white"></i>
+      </div>
+ 
+      <div class="content">
+        <h1 class="title">My Rewards Code</h1>
+        <h4 class="title"><small>Show this for scanning and raking rewards at participating stores.</small></h4>
+      </div>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main-content">
+  <div class="container">
+  	<div class="row"> 
+		<div class="col-lg-6 col-lg-offset-4">
+
+<style type="text/css">
+ table {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+ }
+ td {
+   border-width: 0;
+   border-style: none;
+   border-color: #0000ff;
+   border-collapse: collapse;
+   padding: 0;
+   margin: 0;
+   width: 10px;
+   height: 10px;
+ }
+ td.black { background-color: #000; }
+ td.white { background-color: #fff; }
+</style>
+ 
+<table>
+ <% @qr.modules.each_index do |x| -%>
+   <tr>
+   <% @qr.modules.each_index do |y| -%>
+    <% if @qr.dark?(x,y) -%>
+    <td class="black"/>
+    <% else -%>
+    <td class="white"/>
+    <% end -%>
+   <% end -%>
+   </tr>
+ <% end -%>
+</table>
+</div>
+</div>
+</div>
+</div>
