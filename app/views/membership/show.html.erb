@@ -1,4 +1,4 @@
-<% provide(:title, 'All Memberships') %>
+<% provide(:title, 'My Rewards') %>
 <div id="main-content-header">
   <div class="container">
     <div class="row">
@@ -29,14 +29,10 @@
     <a href='#'>
       <div class='image-link'>
         <i class='fa-icon-search'></i>
-                <% if membership.store.name.start_with?('Paddy') %>
-                <%= image_tag("Paddy-keg.gif", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
-                <% elsif membership.store.name.start_with?('Lotus') %>
-                <%= image_tag("LotusYoga.jpg", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
-                <% elsif membership.store.name.start_with?('IXL') %>
-                <%= image_tag("ixl_logo.jpg", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
+                <% if membership.store.store_logo.nil? %>
+                <%= image_tag("default_store_logo.png", :size => "273x186", :class => "img-responsive img-rounded center-block") %>
                 <% else %>
-                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+                <%= image_tag(membership.store.store_logo, :size => "273x186", :class => "img-responsive img-rounded center-block") %>
                 <% end %>
 
       </div>

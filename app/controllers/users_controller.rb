@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 		if params[:register] || params[:signup]
 		@user = User.find_by(email: params[:user][:email].downcase)
 		if @user
+				@user = User.new
 				if params[:register]
 					flash[:user_info] = 'You are already a MobLoyalty member! Please sign in above.'	
 					redirect_to root_url(anchor: 'customer')
@@ -67,8 +68,13 @@ private
 
 def user_params
 	params[:user][:phone_number] = params[:user][:phone_number].delete("^0-9")
+	store_id = nil
+	if params[:signup]
+		store_id = current_user.stores.first.id
+	end
+	params[:user][:initial_signup_store_id] = store_id
 	params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :customer_account, :merchant_account, :password,
-		:password_confirmation)
+		:password_confirmation, :initial_signup_store_id)
 end
 
 end
