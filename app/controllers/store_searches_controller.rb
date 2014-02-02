@@ -47,7 +47,7 @@ class StoreSearchesController < ApplicationController
       flash[:notice] = "Save NOT successful"
     end
 
-    render 'new'
+    redirect_to store_searches_path
   end
 
   def find

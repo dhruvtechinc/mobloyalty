@@ -1,16 +1,14 @@
 <div class='row portfolio-boxes' id='portfolio-container'>
+      <% @stores.in_groups_of(4, false).each do |store_array| %>
+      <% store_array.each do |store| %>
   <div class='col-sm-3 portfolio-box portfolio-item'>
     <a href='#'>
       <div class='image-link'>
         <i class='fa-icon-search'></i>
               <% if store.store_logo.nil? %>
-                <%= image_tag("Paddy-keg.gif", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
-                <% elsif store.name.start_with?('Lotus') %>
-                <%= image_tag("LotusYoga.jpg", :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
-                <% elsif store.name.start_with?('IXL') %>
-                <%= image_tag(store.store_logo, :size => "273x186", :alt => "IXL Martial Arts Leawood KS", :class => "img-responsive img-rounded center-block") %>
+                <%= image_tag("default_store_logo.png", :size => "273x186", :class => "img-responsive img-rounded center-block") %>
                 <% else %>
-                <img class="img-responsive img-rounded center-block" alt="Title" width="273" height="186" src="/assets/lulus.png" />
+                <%= image_tag(store.store_logo, :size => "273x186", :alt => store.name, :class => "img-responsive img-rounded center-block") %>
                 <% end %>
 
       </div>
@@ -18,4 +16,6 @@
       <p class='category'><%= link_to "Add", membership_add_path(:store => store.id), method: "create" %></p>
     </a>
   </div>
+  <% end %>
+<% end %>
 </div>
