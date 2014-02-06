@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!(:validate => false)
+    UserMailer.password_reset(self).deliver
+  end
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -27,6 +34,15 @@ class User < ActiveRecord::Base
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def generate_token(column)
+      begin
+        puts column
+        puts self.inspect
+        self[column] = SecureRandom.urlsafe_base64
+        puts self[column]
+      end while User.exists?(column => self[column])
     end
 
 end

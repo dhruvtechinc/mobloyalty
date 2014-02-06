@@ -32,7 +32,11 @@
           <% end %>
           <li><%= link_to content_tag(:span, 'Sign out'), signout_path, method: "delete" %></li>
         </ul>
+        <% elsif current_page?(new_password_reset_path)  %>
+        
+        
         <% else %>
+
           <%= render 'layouts/signin' %>
         <% end %>
     </div>

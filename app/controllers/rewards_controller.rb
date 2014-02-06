@@ -3,6 +3,9 @@ class RewardsController < ApplicationController
   #before_action :correct_user, except: [:create]
   def new
   	@reward = Reward.new
+    if !params[:email].blank?
+      @reward.email = params[:email]
+    end
   end
 
   def create
