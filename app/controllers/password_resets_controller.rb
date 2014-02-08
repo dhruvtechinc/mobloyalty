@@ -9,13 +9,17 @@ def create
 end
 
 def edit
-  @user = User.find_by_password_reset_token!(params[:id])
+  @user = User.find_by_password_reset_token!(params[:id]) rescue nil
+  if @user.nil?
+    flash[:signin_info] = "Password reset has expired. Try again."
+    redirect_to new_password_reset_path
+  end
 end
 
 def update
   @user = User.find_by_password_reset_token!(params[:id])
   if @user.password_reset_sent_at < 2.hours.ago
-    flash[:signin_info] = "Password reset has expired."
+    flash[:signin_info] = "Password reset has expired. Try again."
     redirect_to new_password_reset_path
   elsif @user.update_attributes(params.require(:user).permit(:password, :password_confirmation))
     flash[:signin_info] = "Password has been reset!"
