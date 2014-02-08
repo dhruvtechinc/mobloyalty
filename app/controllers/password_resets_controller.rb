@@ -17,11 +17,17 @@ def update
   if @user.password_reset_sent_at < 2.hours.ago
     flash[:signin_info] = "Password reset has expired."
     redirect_to new_password_reset_path
-  elsif @user.update_attributes(params[:user])
+  elsif @user.update_attributes(params.require(:user).permit(:password, :password_confirmation))
     flash[:signin_info] = "Password has been reset!"
     redirect_to root_url
   else
     render :edit
   end
 end
+private
+        # Never trust parameters from the scary internet, only allow the white list through.
+        def user_params
+            params.require(:user).permit(:post_id, :comment, :body)
+        end
+
 end
