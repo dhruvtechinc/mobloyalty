@@ -39,6 +39,7 @@ class RewardsController < ApplicationController
       @reward = Reward.new
       # Get store from logged in user
       puts "############################################################################"
+      puts current_user.inspect
       store  = current_user.stores.first
       puts store.inspect
       puts "############################################################################"
