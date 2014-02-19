@@ -38,11 +38,11 @@ class RewardsController < ApplicationController
 
       @reward = Reward.new
       # Get store from logged in user
-      puts "############################################################################"
-      puts current_user.inspect
+      #puts "############################################################################"
+      #puts current_user.inspect
       store  = current_user.stores.first
-      puts store.inspect
-      puts "############################################################################"
+      #puts store.inspect
+      #puts "############################################################################"
       # Find customer/user for Accrue or Redeem, using either email or phone num
       if params[:accrue] || params[:redeem]
         if !params[:reward][:email].empty?
@@ -58,10 +58,6 @@ class RewardsController < ApplicationController
           flash[:error] = "We were unable to locate the user. Is the user a MobLoyalty member yet?"
           redirect_to rewards_new_path(ar: ar)
         else
-          puts "############################################################################"
-          puts user.id
-          puts store.id
-          puts "############################################################################"
           membership = Membership.where(:user_id => user.id, :store_id => store.id).first
           
           puts membership.inspect
@@ -78,7 +74,11 @@ class RewardsController < ApplicationController
           params[:reward][:membership_id] = membership.id
           msg = ""
           if params[:accrue]
-            accrue_now = params[:reward][:amount].to_f * 10
+            if store.id == 2 #hack for Smile Salon
+              accrue_now = params[:reward][:amount].to_f * 1
+            else
+              accrue_now = params[:reward][:amount].to_f * 10
+            end
             params[:reward][:accrued] = accrue_now
             params[:reward][:redeemed] = 0
             msg = user.first_name + " " + user.last_name + " Successfully added " + accrue_now.to_s + " points."
