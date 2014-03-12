@@ -9,7 +9,7 @@ class RewardsController < ApplicationController
   end
 
   def create
-
+      # what param is passed in the url
       ar = params[:accrue] ? params[:accrue]["Accrue"] : params[:redeem]["Redeem"]
       # Error if both email and phone number are blank
       if params[:reward][:email].blank? && params[:reward][:phone_number].blank?
@@ -52,7 +52,7 @@ class RewardsController < ApplicationController
           user = User.where(:phone_number => params[:reward][:phone_number]).first
         end
         
-        puts user.inspect
+        #puts user.inspect
         # Error if user not present 
         if user.nil?
           flash[:error] = "We were unable to locate the user. Is the user a MobLoyalty member yet?"
@@ -60,7 +60,7 @@ class RewardsController < ApplicationController
         else
           membership = Membership.where(:user_id => user.id, :store_id => store.id).first
           
-          puts membership.inspect
+          #puts membership.inspect
 
           if !membership
             membership = Membership.new(user_id: user.id, store_id: store.id)
@@ -71,20 +71,20 @@ class RewardsController < ApplicationController
             end
 
           end
-          params[:reward][:membership_id] = membership.id
+          params[:reward][:membership_id] = membership.id.to_i
           msg = ""
           if params[:accrue]
-            if store.id == 2 #hack for Smile Salon
+            #if store.id == 2 #hack for Smile Salon
               accrue_now = params[:reward][:amount].to_f * 1
-            else
-              accrue_now = params[:reward][:amount].to_f * 10
-            end
+            #else
+              #accrue_now = params[:reward][:amount].to_f * 10
+            #end
             params[:reward][:accrued] = accrue_now
             params[:reward][:redeemed] = 0
             msg = user.first_name + " " + user.last_name + " Successfully added " + accrue_now.to_s + " points."
           elsif params[:redeem]
             accrue = Reward.where(:membership_id => membership.id).sum('accrued')
-            points = params[:reward][:amount].to_f * 10
+            points = params[:reward][:amount].to_f #* 10
             if points <= accrue
               params[:reward][:accrued] = 0
               params[:reward][:redeemed] = points
