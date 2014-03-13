@@ -92,18 +92,16 @@
                 
 
                 <% if @stores.any? %>
-        <!-- <%= render @stores %> Commented out because the partial is displaying multiple columns with same lines -->
-        <div class='row portfolio-boxes' id='portfolio-container'>
+       <div class='row portfolio-boxes' id='portfolio-container'>
       <% @stores.in_groups_of(4, false).each do |store_array| %>
       <% store_array.each do |store| %>
   <div class='col-sm-3 portfolio-box portfolio-item'>
     <a href='#'>
       <div class='image-link'>
-        <i class='fa-icon-search'></i>
               <% if store.store_logo.nil? %>
-                <%= image_tag("default_store_logo.png", :size => "273x186", :class => "img-responsive img-rounded center-block") %>
+                <%= image_tag("default_store_logo.png", :size => "273x186", :class => "mob-img-responsive img-rounded center-block") %>
                 <% else %>
-                <%= image_tag(store.store_logo, :size => "273x186", :alt => store.name, :class => "img-responsive img-rounded center-block") %>
+                <%= image_tag(store.store_logo, :size => "273x186", :alt => store.name, :class => "mob-img-responsive img-rounded center-block") %>
                 <% end %>
 
       </div>
