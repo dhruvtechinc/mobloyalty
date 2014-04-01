@@ -2,8 +2,6 @@ class CreateVendorProgramSetups < ActiveRecord::Migration
   def change
     create_table :vendor_program_setups do |t|
       t.belongs_to :stores, :vendor_programs
-      t.integer :store_id
-      t.integer :vendor_program_id
       t.integer :accrue_points_visits
       t.integer :reward_points_visits
       t.string :reward_type_desc
