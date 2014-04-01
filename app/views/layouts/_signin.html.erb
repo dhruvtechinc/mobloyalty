@@ -35,12 +35,28 @@
     </div>
     
     <%= f.submit "Log in", class: "btn btn-info", name: "signin" %>
+
   
   </fieldset>
   <% end %>  
   
   </li>
-  <li class="active"></br><div class="navbar-form"><%= link_to "<button class='btn btn-danger'>Forgot Password?</button>".html_safe, new_password_reset_path %></div></li>
+  <!--
+  <li class="active"></br><div class="navbar-form">
+    <span id="signinButton">
+  <span
+    class="g-signin"
+    data-callback="signinCallback"
+    data-clientid="CLIENT_ID"
+    data-cookiepolicy="single_host_origin"
+    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+    data-scope="https://www.googleapis.com/auth/plus.login">
+  </span>
+</span></div>
+</li> -->
+<li class="active"></br><div class="navbar-form">
+  <%= link_to "<button class='btn btn-danger'>Forgot Password?</button>".html_safe, new_password_reset_path %>
+  </div></li>
 
 </ul>
 

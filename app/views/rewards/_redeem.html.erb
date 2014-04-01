@@ -9,6 +9,7 @@
       </div>
 
       <div class="content">
+      <h5 class="title"><%= current_user.stores.first.name %></h5>
         <h1 class="title">Redeem Points</h1>
       </div>
 
@@ -75,8 +76,8 @@
             <%= f.text_field :receipt_no, class: "form-control", placeholder: "Enter your Receipt Number" %>
           </div>                    
           <div class="form-group">
-            <%= f.label :amount,"Points to Redeem" %>
-            <%= f.text_field :amount, class: "form-control", placeholder: "Enter Amount on the Receipt to Redeem Points" %>
+            <%= f.label :redeemed,"Points to Redeem" %>
+            <%= f.text_field :redeemed, class: "form-control", placeholder: "Enter Amount on the Receipt to Redeem Points" %>
           </div>                    
           <div class="btn-group">
           <%= f.submit "Redeem Points", class: "btn btn-lg btn-danger", name: "redeem" %>

@@ -1,0 +1,45 @@
+<% if !@vendor_program_setup %> <% @vendor_program_setup = VendorProgramSetup.new; %>
+<% end %>
+<%= form_for (@vendor_program_setup), html: {class: "text-left", id: "vendor_program_setup_id"} do |f| %>
+<fieldset>
+  <% if @vendor_program_setup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor_program_setup.errors.count, "error") %> prohibited this vendor_program_setup from being saved:</h2>
+
+      <ul>
+      <% @vendor_program_setup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h4>One time setup - how many points does a customer accrue and when and what they redeem</h4>
+  <div class="form-group">
+    <%= f.hidden_field :vendor_programs_id, :value => 4 %>
+    <%= f.label :accrue_points_visits, "How many Points per $1?" %>
+    <%= f.number_field :accrue_points_visits, id: "vendor_program_setup_disable_check_id", class: "form-control", input_html: {value: ''}, placeholder: "If $1 = 1 Point then Enter Number 1." %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reward_points_visits, "Cutomer Redeems after how many points?" %>
+    <%= f.number_field :reward_points_visits, class: "form-control", input_html: {value: ''}, placeholder: "If customer gets a reward after accruing 500 points then Enter 500." %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reward_type_desc, "Describe the reward" %>
+    <%= f.text_field :reward_type_desc, class: "form-control", input_html: {value: ''}, placeholder: "For example: $5 Off on any Purchase. Limit 1 per Person/Purchase." %>
+  </div>
+  <div class="btn-group">
+    <%= f.submit "Setup", class: "btn btn-lg btn-info", name: "daily_points_setup" %>
+  </div>
+  <div class="btn-group">
+    <%= f.submit "Clear", class: "btn btn-lg", name: "clear", type: "reset" %>
+  </div>
+  </fieldset>
+<% end %>
+<script type="text/javascript">
+  $(function() {
+    if ($('#vendor_program_setup_disable_check_id').val() !== "")
+      $("#vendor_program_setup_id :input").attr("disabled","true");
+    else 
+      $("#vendor_program_setup_id :input").removeAttr("disabled");
+  });
+  </script>

@@ -1,0 +1,29 @@
+<h1>Listing vendor_programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type code</th>
+      <th>Type desc</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendor_programs.each do |vendor_program| %>
+      <tr>
+        <td><%= vendor_program.type_code %></td>
+        <td><%= vendor_program.type_desc %></td>
+        <td><%= link_to 'Show', vendor_program %></td>
+        <td><%= link_to 'Edit', edit_vendor_program_path(vendor_program) %></td>
+        <td><%= link_to 'Destroy', vendor_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vendor program', new_vendor_program_path %>

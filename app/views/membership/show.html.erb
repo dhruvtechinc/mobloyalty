@@ -9,7 +9,7 @@
       </div>
  
       <div class="content">
-        <h1 class="title">My Rewards</h1>
+        <h1 class="title">My Stores</h1>
       </div>
  
       </div>
@@ -28,11 +28,11 @@
   <div class='col-sm-3 portfolio-box portfolio-item'>
     <a href='#'>
       <div class='image-link'>
-        <i class='fa-icon-search'></i>
+        <!-- <i class='fa-icon-search'></i> -->
                 <% if membership.store.store_logo.nil? %>
-                <%= image_tag("default_store_logo.png", :size => "273x186", :class => "img-responsive img-rounded center-block") %>
+                <%= image_tag("default_store_logo.png", :size => "273x186", :class => "mob-img-responsive img-rounded center-block") %>
                 <% else %>
-                <%= image_tag(membership.store.store_logo, :size => "273x186", :alt => membership.store.name, :class => "img-responsive img-rounded center-block") %>
+                <%= image_tag(membership.store.store_logo, :size => "273x186", :alt => membership.store.name, :class => "mob-img-responsive img-rounded center-block") %>
                 <% end %>
 
       </div>

@@ -41,6 +41,8 @@ class StoreSearchesController < ApplicationController
     storeId = params[:store]
     @membership = Membership.new(user_id: userId, store_id: storeId)
     #@stores = Store.where(:zip => @storesearch.zip)
+    vendor_program_setup = VendorProgramSetup.where(:stores_id => storeId, :vendor_programs_id => 2).first
+
     if @membership.save
       flash[:notice] = "Save successful"
     else

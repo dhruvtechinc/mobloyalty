@@ -19,12 +19,11 @@
       <ul class="nav navbar-nav navbar-right">
          
           <% if current_user.customer_account? %>
-          <li><%= link_to content_tag(:span, 'Home'),    users_path %></li>
           <li><%= link_to content_tag(:span, 'Search Stores'),    store_searches_path %></li>
-          <li><%= link_to content_tag(:span, 'My Rewards'),    users_path %></li>
+          <li><%= link_to content_tag(:span, 'My Stores'),    users_path %></li>
           <li><%= link_to content_tag(:span, 'My Rewards Code'),    qrcodes_path %></li>
           <% elsif current_user.merchant_account? %>
-          <li><%= link_to content_tag(:span, 'Home'),    signup_path %></li>
+          <li><%= link_to content_tag(:span, 'Setup'),    vendor_program_setups_path %></li>
           <li><%= link_to content_tag(:span, 'Customer Sign up'), signup_path %></li>
           <li><%= link_to content_tag(:span, 'Accrue Points'),    rewards_new_path(ar: "Accrue") %></li>
           <li><%= link_to content_tag(:span, 'Redeem Points'),    rewards_new_path(ar: "Redeem") %></li>

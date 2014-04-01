@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206023256) do
+ActiveRecord::Schema.define(version: 20140317003054) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20140206023256) do
   add_index "memberships", ["user_id", "store_id"], name: "index_memberships_on_user_id_and_store_id", unique: true
 
   create_table "rewards", force: true do |t|
-    t.string   "membership_id"
     t.string   "receipt_no"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "amount"
     t.integer  "accrued"
     t.integer  "redeemed"
+    t.integer  "membership_id"
   end
 
   create_table "stores", force: true do |t|
@@ -73,9 +73,30 @@ ActiveRecord::Schema.define(version: 20140206023256) do
     t.string   "initial_signup_store_id"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "vendor_program_setups", force: true do |t|
+    t.integer  "stores_id"
+    t.integer  "vendor_programs_id"
+    t.integer  "accrue_points_visits"
+    t.integer  "reward_points_visits"
+    t.string   "reward_type_desc"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vendor_programs", force: true do |t|
+    t.string   "type_code"
+    t.string   "type_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

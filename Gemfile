@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails',
                               :branch => '3.0.0'
-gem 'bcrypt-ruby', '~> 3.0.0'#, :require => "bcrypt"
+gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 
 # Use sqlite3 as the database for Active Record
 group :development do
@@ -18,6 +18,10 @@ group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
 end
+# Google Signin integration
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2' 
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

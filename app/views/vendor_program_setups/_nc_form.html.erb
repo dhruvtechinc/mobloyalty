@@ -1,0 +1,39 @@
+<% if @vendor_program_setup_nc %>
+<%= form_for (@vendor_program_setup_nc), html: {class: "text-left", id: "nc_vendor_program_setup_id"} do |f| %>
+<fieldset>
+  <% if @vendor_program_setup_nc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor_program_setup_nc.errors.count, "error") %> prohibited this vendor_program_setup_nc from being saved:</h2>
+
+      <ul>
+      <% @vendor_program_setup_nc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h4>Welcome Customer Rewards - how many points does a customer get when they become your rewards memeber. </h4>
+  <div class="form-group">  
+  <%= f.hidden_field :vendor_programs_id, :value => 2 %>
+    <%= f.label :accrue_points_visits, "How many Points?" %>
+    <%= f.number_field :accrue_points_visits, id: "nc_vendor_program_setup_disable_check_id", class: "form-control", input_html: {value: ''}, placeholder: "Enter Number of points. Enter 0 if none." %>
+  </div>
+  <div class="btn-group">
+    <%= f.submit "Setup", class: "btn btn-lg btn-info", name: "new_customer_setup" %>
+  </div>
+  <div class="btn-group">
+    <%= f.submit "Clear", class: "btn btn-lg", name: "clear", type: "reset" %>
+  </div>
+  </fieldset>
+<% end %>
+ <% else %>
+
+<% end %>
+<script type="text/javascript">
+  $(function() {
+    if ($('#nc_vendor_program_setup_disable_check_id').val() !== "")
+      $("#nc_vendor_program_setup_id :input").attr("disabled","true");
+    else 
+      $("#nc_vendor_program_setup_id :input").removeAttr("disabled");
+  });
+  </script>

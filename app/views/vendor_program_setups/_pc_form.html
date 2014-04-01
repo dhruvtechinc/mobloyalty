@@ -1,0 +1,44 @@
+<% if @vendor_program_setup_pc %>
+<%= form_for (@vendor_program_setup_pc), html: {class: "text-left"} do |f| %>
+<fieldset>
+  <% if @vendor_program_setup_pc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor_program_setup_pc.errors.count, "error") %> prohibited this vendor_program_setup_pc from being saved:</h2>
+
+      <ul>
+      <% @vendor_program_setup_pc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h4>Punch Card - Setup how many times a customer visits before they recieve free reward.</h4>
+  <div class="form-group">
+    <%= f.hidden_field :vendor_programs_id, :value => 1 %>
+    <%= f.label :accrue_points_visits, "How many visits before reward?" %>
+    <%= f.number_field :accrue_points_visits, class: "form-control", input_html: {value: ''}, placeholder: "Enter Number of visits" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reward_type_desc, "Describe the reward" %>
+    <%= f.text_field :reward_type_desc, class: "form-control", input_html: {value: ''}, placeholder: "Enter Description" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_date, "Program Start Date" %>
+    <%= f.date_select :start_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date, "Program End Date" %>
+    <%= f.date_select :end_date, class: "form-control" %>
+  </div>
+  <div class="btn-group">
+    <%= f.submit "Setup", class: "btn btn-lg btn-info", name: "punch_card_setup" %>
+  </div>
+  <div class="btn-group">
+    <%= f.submit "Clear", class: "btn btn-lg", name: "clear", type: "reset" %>
+  </div>
+  </fieldset>
+<% end %>
+<% else %>
+<h1> hello </h1>
+<% end %>
+ 

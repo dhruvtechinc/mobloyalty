@@ -61,11 +61,12 @@ class RewardsController < ApplicationController
           membership = Membership.where(:user_id => user.id, :store_id => store.id).first
           
           #puts membership.inspect
-
+          new_customer = false
           if !membership
             membership = Membership.new(user_id: user.id, store_id: store.id)
             if membership.save
               flash[:notice] = "We have successfully associated you to our store."
+              new_customer = true
             else
               flash[:notice] = "Bad Doghnut"
             end
@@ -73,30 +74,47 @@ class RewardsController < ApplicationController
           end
           params[:reward][:membership_id] = membership.id.to_i
           msg = ""
+          bp = balance_points(membership.id)
+          #current_accrued_points = Reward.where(:membership_id => membership.id).order(updated_at: :desc).first.nil? ? 0 : current_accrued_points
+          #vendor_program_setup = VendorProgramSetup.where(:stores_id => @store.id, :vendor_programs_id => 2).first
           if params[:accrue]
             #if store.id == 2 #hack for Smile Salon
-              accrue_now = params[:reward][:amount].to_f * 1
-            #else
-              #accrue_now = params[:reward][:amount].to_f * 10
-            #end
+            if daily_points_to_accrue.nil?
+              accrue_now = params[:reward][:amount].to_i * 1
+            else
+              points_to_accrue = 0
+              if new_customer == true && !new_customer_points_to_accrue.nil?
+                points_to_accrue += new_customer_points_to_accrue
+              end
+              points_to_accrue += params[:reward][:amount].to_i * daily_points_to_accrue
+              accrue_now = points_to_accrue.to_i
+            end
             params[:reward][:accrued] = accrue_now
             params[:reward][:redeemed] = 0
             msg = user.first_name + " " + user.last_name + " Successfully added " + accrue_now.to_s + " points."
           elsif params[:redeem]
-            accrue = Reward.where(:membership_id => membership.id).sum('accrued')
-            points = params[:reward][:amount].to_f #* 10
-            if points <= accrue
+            #accrue = Reward.where(:membership_id => membership.id).sum('accrued')
+            points_to_redeem = params[:reward][:redeemed].to_i
+            if points_to_redeem > bp
+              flash[:error] = "Not enough points available to redeem."
+              redirect_to rewards_new_path(ar: ar)
+              return
+            elsif !daily_points_to_redeem.nil? && points_to_redeem != daily_points_to_redeem
+              flash[:error] = "Customer can only redeem " + daily_points_to_redeem.to_s + " points"
+              redirect_to rewards_new_path(ar: ar)
+              return
+            else #points_to_redeem <= bp
               params[:reward][:accrued] = 0
-              params[:reward][:redeemed] = points
+              params[:reward][:amount] = 0
               msg = user.first_name + " " + user.last_name + " Successfully redeemed points."
-            else
-              msg = "Not enough points available to redeem."
             end
           end
           @reward = Reward.new(reward_params)
           if @reward.save
             @reward = Reward.new
-            flash[:success] = msg
+            total_available_points = balance_points(membership.id)
+            msg += "<br/>Total Available Points: " + total_available_points.to_s
+            flash[:success] = msg.html_safe
           else
             flash[:error] = @reward.errors.full_messages.clone
           end

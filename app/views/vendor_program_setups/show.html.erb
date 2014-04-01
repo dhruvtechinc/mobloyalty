@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @vendor_program_setup.stores_id %>
+</p>
+
+<p>
+  <strong>Vendor program:</strong>
+  <%= @vendor_program_setup.vendor_programs_id %>
+</p>
+
+<p>
+  <strong>Accrue points visits:</strong>
+  <%= @vendor_program_setup.accrue_points_visits %>
+</p>
+
+<p>
+  <strong>Reward points visits:</strong>
+  <%= @vendor_program_setup.reward_points_visits %>
+</p>
+
+<p>
+  <strong>Reward type descstring:</strong>
+  <%= @vendor_program_setup.reward_type_desc %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @vendor_program_setup.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @vendor_program_setup.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_vendor_program_setup_path(@vendor_program_setup) %> |
+<%= link_to 'Back', vendor_program_setups_path %>

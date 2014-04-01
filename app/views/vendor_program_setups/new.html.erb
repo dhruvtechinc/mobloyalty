@@ -1,0 +1,63 @@
+<div id="main-content-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 icon-box">
+				<!-- icon -->
+				<div class="icon icon-wrap icon-circle icon-lg contrast-bg">
+					<i class="fa-icon-wrench text-white"></i>
+				</div>
+
+				<div class="content">
+					<h1 class="title">Setup your Rewards Programs</h1>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-content">
+	<div class="container bs-docs-container">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<div class='tabbable'>
+						<ul class='nav nav-tabs' id='tab'>
+							<li class='active'>
+								<a data-toggle='tab' href='#tab-content-1'>Daily</a>
+							</li>
+							<li>
+								<a data-toggle='tab' href='#tab-content-2'>New Customer</a>
+							</li>
+							<li>
+								<a data-toggle='tab' href='#tab-content-3'>Birthday Points</a>
+							</li>
+							<li>
+								<a data-toggle='tab' href='#tab-content-4'>Punch Cards</a>
+							</li>
+						</ul>
+						<div class='tab-content' id='tab-content'>
+							<div class='tab-pane fade in active' id='tab-content-1'>
+
+								<div class="stand-out-form">
+									<%= render 'g_form' %>
+								</div>
+							</div>
+							<div class='tab-pane fade' id='tab-content-2'>
+								<%= render 'nc_form' %>
+							</div>
+							<div class='tab-pane fade' id='tab-content-3'>
+								<%= render 'bp_form' %>
+							</div>
+							<div class='tab-pane fade' id='tab-content-4'>
+								<%= render 'pc_form' %>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

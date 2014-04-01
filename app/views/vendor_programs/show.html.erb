@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type code:</strong>
+  <%= @vendor_program.type_code %>
+</p>
+
+<p>
+  <strong>Type desc:</strong>
+  <%= @vendor_program.type_desc %>
+</p>
+
+<%= link_to 'Edit', edit_vendor_program_path(@vendor_program) %> |
+<%= link_to 'Back', vendor_programs_path %>

@@ -1,4 +1,8 @@
 Mobloyalty::Application.routes.draw do
+  
+
+  #resources :vendor_programs
+
   get "rewards/new"
   get "rewards/create"
   get "rewards/show"
@@ -6,6 +10,7 @@ Mobloyalty::Application.routes.draw do
   get "membership/show"
   get "store_searches/new"
   get "businesses/new"
+  get "/vendor_program_setups(/:id)" => "vendor_program_setups#test"
   
   
 
@@ -21,6 +26,7 @@ Mobloyalty::Application.routes.draw do
   resources :widgets
   resources :qrcodes
   resources :password_resets
+  resources :vendor_program_setups
   root "static_pages#home" #, constraints: LoggedInConstraint.new(false)
   #root to: "users#new", constraints: LoggedInConstraint.new(true)
   #root  'users#new'
